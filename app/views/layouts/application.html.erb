@@ -11,5 +11,10 @@
 
   <body>
     <%= yield %>
+    <div>
+      <p><%= link_to 'О проекте', about_path %> | 
+        <%= link_to 'Страница автора', about_author_path %>
+      </p>
+    </div>
   </body>
 </html>
