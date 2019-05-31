@@ -1,2 +1,4 @@
 # file: config/initializers/version.rb
-VERSION = '0.1.0'
+class Version
+  VERSION = '0.1.0'
+end
