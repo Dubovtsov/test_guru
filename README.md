@@ -24,28 +24,38 @@ Things you may want to cover:
 ## Сущности проекта Тест Гуру
 
 **Test**
+* id
 * title
 * level
 * category_id
 
 **Category**
+* id
 * title
 
 **Question**
+* id
 * body
 * answer
 * test_id
 
 **Answer**
-* user_id
-* test_id
+* id
+* body
+* correct
 * question_id
-* user_answer
-* rating
 
 **User**
+* id
 * login
 * password
 * first_name
 * last_name
 * admin
+
+**Сompleted_test**
+* user_id
+* test_id
+* question_id
+* answer_id
+* rating
