@@ -23,9 +23,29 @@ Things you may want to cover:
 
 ## Сущности проекта Тест Гуру
 
-* БД
-* Таблица Users
-* Таблица Tests
-* Отдельный шаблон view для Администратора
-* View для Пользователей
-* Кнопка поделиться в соцсетях
+**Test**
+* title
+* level
+* category_id
+
+**Category**
+* title
+
+**Question**
+* body
+* answer
+* test_id
+
+**Answer**
+* user_id
+* test_id
+* question_id
+* user_answer
+* rating
+
+**User**
+* login
+* password
+* first_name
+* last_name
+* admin
