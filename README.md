@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-## Сущности проекта Тест Гуру
+## Тест Гуру
 
 **Test**
 * id
@@ -36,7 +36,6 @@ Things you may want to cover:
 **Question**
 * id
 * body
-* answer
 * test_id
 
 **Answer**
@@ -48,14 +47,8 @@ Things you may want to cover:
 **User**
 * id
 * login
-* password
-* first_name
-* last_name
-* admin
+* email
 
 **Сompleted_test**
 * user_id
 * test_id
-* question_id
-* answer_id
-* rating
