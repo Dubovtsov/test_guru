@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version 2.6.3
+* Ruby version 2.6.0
 
 * System dependencies
 
@@ -21,11 +21,34 @@ Things you may want to cover:
 
 * Deployment instructions
 
-## Сущности проекта Тест Гуру
+## Тест Гуру
 
-* БД
-* Таблица Users
-* Таблица Tests
-* Отдельный шаблон view для Администратора
-* View для Пользователей
-* Кнопка поделиться в соцсетях
+**Test**
+* id
+* title
+* level
+* category_id
+
+**Category**
+* id
+* title
+
+**Question**
+* id
+* body
+* test_id
+
+**Answer**
+* id
+* body
+* correct
+* question_id
+
+**User**
+* id
+* login
+* email
+
+**Сompleted_test**
+* user_id
+* test_id
