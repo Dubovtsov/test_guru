@@ -26,4 +26,4 @@ Question.create(body: "Является ли Ruby объектно-ориент�
 Answer.create(body: 'Да', correct: true, question_id: 1)
 Answer.create(body: 'Нет', correct: false, question_id: 1)
 
-CompletedTest.create(user_id: 1, test_id: 1)
+TestsUser.create(user_id: 1, test_id: 1)
