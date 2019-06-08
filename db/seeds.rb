@@ -13,17 +13,17 @@ n = 1
 end
 
 categories = [:Ruby, :Rails, :JS, :HTML, :CSS]
-categories.each { |c| Category.create(title: c, user_id: 1) }
+categories.each { |c| Category.create(title: c) }
 
-# у меня не получилось избавиться от прямого указания id
-Test.create(title: 'Введение в Ruby', category_id: 1, user_id: 1)
-Test.create(title: 'Идиомы Ruby', category_id: 1, user_id: 1)
-Test.create(title: 'Миграции в Rails', level: 1, category_id:2, user_id: 1)
-Test.create(title: 'Генераторы Rails', category_id: 2, user_id: 1)
+categories = Category.create([{title: :Ruby},{title: :Rails}, {title: :JS}, {title: :HTML}, {title: :CSS}])
+tests = Test.create([{title: 'Введение в Ruby',category_id: categories[0].id, user_id: User.first.id},
+                    {title: 'Идиомы Ruby',category_id: categories[0].id, user_id: User.first.id},
+                    {title: 'Миграции в Rails', level: 1,category_id: categories[1].id, user_id: User.first.id},
+                    {title: 'Генераторы Rails',category_id: categories[1].id, user_id: User.first.id}])
 
-Question.create(body: "Является ли Ruby объектно-ориентированным языком программирования", test_id: 1, user_id: 1)
+question = Question.create(body: "Является ли Ruby объектно-ориентированным языком программирования?", test_id: tests[0].id)
 
-Answer.create(body: 'Да', correct: true, question_id: 1, user_id: 1)
-Answer.create(body: 'Нет', correct: false, question_id: 1, user_id: 1)
+Answer.create(body: 'Да', correct: true, question_id: Question.first.id)
+Answer.create(body: 'Нет', correct: false, question_id: Question.first.id)
 
-TestsUser.create(user_id: 1, test_id: 1)
+TestsUser.create(user_id: User.first.id, test_id: tests[0].id)
