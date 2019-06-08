@@ -27,15 +27,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_180432) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "completed_tests", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "test_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["test_id"], name: "index_completed_tests_on_test_id"
-    t.index ["user_id"], name: "index_completed_tests_on_user_id"
-  end
-
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
     t.integer "test_id"
@@ -51,6 +42,15 @@ ActiveRecord::Schema.define(version: 2019_06_03_180432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
+  end
+
+  create_table "tests_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "test_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_tests_users_on_test_id"
+    t.index ["user_id"], name: "index_tests_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
