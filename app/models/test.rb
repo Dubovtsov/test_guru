@@ -4,7 +4,7 @@ class Test < ApplicationRecord
   has_many :tests_users
   has_many :users, through: :tests_users
   alias_attribute :author, :user
-  belongs_to :author
+  belongs_to :user
 
   def self.sort_by_category(category)
     Test.pluck(:title).joins(:category).where(categories: { title: category }).order(title: :desc)
