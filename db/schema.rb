@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 2019_06_03_180432) do
     t.string "title", null: false
     t.integer "level", default: 0
     t.integer "category_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "tests_users", force: :cascade do |t|
@@ -54,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_180432) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "login", null: false
+    t.string "name", null: false
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
