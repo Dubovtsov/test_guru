@@ -5,7 +5,12 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
   belongs_to :author, class_name: 'User'
 
-  def self.sort_by_category(category)
-    Test.pluck(:title).joins(:category).where(categories: { title: category }).order(title: :desc)
-  end
+  validates :title, presence: true
+  validates :title, uniqueness: { scope: :level, case_sensitive: false }
+  validates :level, numericality: { :greater_than_or_equal_to => 0 }
+
+  scope :easy,      -> { where(level: 0..1) }
+  scope :medium,    -> { where(level: 2..4) }
+  scope :difficult, -> { where(level: 5..Float::INFINITY) }
+  scope :sort_by_category, -> (category) { pluck(:title).joins(:category).where(categories: { title: category }) }
 end
