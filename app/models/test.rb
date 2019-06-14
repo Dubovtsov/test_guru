@@ -12,5 +12,5 @@ class Test < ApplicationRecord
   scope :easy,      -> { where(level: 0..1) }
   scope :medium,    -> { where(level: 2..4) }
   scope :difficult, -> { where(level: 5..Float::INFINITY) }
-  scope :sort_by_category, -> (category) { joins(:category).where(categories: { title: category }).order(title: :desc) }
+  scope :sort_by_category, -> (category) { pluck(:title).joins(:category).where(categories: { title: category }) }
 end

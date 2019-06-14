@@ -1,4 +1,6 @@
 class Answer < ApplicationRecord
+  MAX_ANSWERS = 4
+
   belongs_to :question
   validates :body, presence: true
   validate :max_answers
@@ -8,7 +10,7 @@ class Answer < ApplicationRecord
   private
 
   def max_answers
-    amount_of_answers = Answer.where(question_id: self.question_id).count
-    errors.add(:question) if amount_of_answers >= 4
+    amount_of_answers = question.answers.count
+    errors.add(:question, "Answers can not be more than #{MAX_ANSWERS}") if amount_of_answers >= MAX_ANSWERS
   end
 end
