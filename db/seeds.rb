@@ -16,10 +16,11 @@ categories = [:Ruby, :Rails, :JS, :HTML, :CSS]
 categories.each { |c| Category.create(title: c) }
 
 categories = Category.create([{title: :Ruby},{title: :Rails}, {title: :JS}, {title: :HTML}, {title: :CSS}])
-tests = Test.create([{title: 'Введение в Ruby',category_id: categories[0].id, user_id: User.first.id},
-                    {title: 'Идиомы Ruby',category_id: categories[0].id, user_id: User.first.id},
-                    {title: 'Миграции в Rails', level: 1,category_id: categories[1].id, user_id: User.first.id},
-                    {title: 'Генераторы Rails',category_id: categories[1].id, user_id: User.first.id}])
+
+tests = Test.create([{title: "Введение в Ruby", level: 1, category_id: categories[0].id, author_id: User.first.id},
+                    {title: "Идиомы Ruby", level: 1, category_id: categories[0].id, author_id: User.first.id},
+                    {title: "Миграции в Rails", level: 1, category_id: categories[1].id, author_id: User.first.id},
+                    {title: "Генераторы Rails", level: 1, category_id: categories[1].id, author_id: User.first.id}])
 
 question = Question.create(body: "Является ли Ruby объектно-ориентированным языком программирования?", test_id: tests[0].id)
 
