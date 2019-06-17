@@ -1,12 +1,13 @@
 class TestsController < ApplicationController
 
   before_action :find_test, only: %i[show]
-  after_action :send_log_message
-  around_action :log_execute_time
+  # after_action :send_log_message
+  # around_action :log_execute_time
 
   def index
-    result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    render plain: result.join("\n")
+    @tests = Test.all
+    # result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
+    # render plain: result.join("\n")
     # render html: '<h1>Hello!</h1>'.html_safe
 
     # render json: { tests: Test.all }
@@ -26,23 +27,23 @@ class TestsController < ApplicationController
   end
 
   def show
-
+    @questions = @test.questions
   end
 
   def new
-
+    @test = Test.new
   end
 
   def create
-    test = Test.create(test_params)
+    @test = Test.create(test_params)
     render plain: test.inspect
   end
 
   private
 
-  def send_log_message
-    logger.info("Action [#{action_name}] was finished")
-  end
+  # def send_log_message
+  #   logger.info("Action [#{action_name}] was finished")
+  # end
 
   def find_test
     @test = Test.find(params[:id])
