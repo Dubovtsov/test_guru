@@ -35,8 +35,19 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.create(test_params)
-    render plain: test.inspect
+    @test = Test.new(test_params)
+
+    # @question = @test.questions.new(question_params)
+    respond_to do |format|
+      if @test.save
+        format.html { redirect_to tests_path, notice: 'Test was successfully created.' }
+        format.json { render :show, status: :created, location: @test }
+      else
+        render plain: @test.inspect
+        # format.html { render :new }
+        # format.json { render json: @test.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
@@ -50,7 +61,7 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level)
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
 end

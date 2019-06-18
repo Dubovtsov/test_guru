@@ -1,14 +1,12 @@
 <p>
-  <strong>Title:</strong>
-  <%= @test.title %>
+  Title: <strong><%= @test.title %></strong>
 </p>
 
 <p>
-  <strong>Level:</strong>
-  <%= @test.level %>
+  Level: <strong><%= @test.level %></strong>
 </p>
 
-<h1>Question</h1>
+<h3>Question</h3>
 
 <table>
   <thead>
@@ -31,8 +29,5 @@
 
 <br>
 
-<%= link_to 'New Question', new_test_question_path(@test) %>
-
-
-<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'New Question', new_test_question_path(@test) %> |
 <%= link_to 'Back', tests_path %>
