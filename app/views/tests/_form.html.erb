@@ -1,25 +1,26 @@
 <%= form_with(model: [@test], local: true) do |form| %>
-  <div class="field">
+  <div class="form-group field">
     <%= form.label :title %>
-    <%= form.text_area :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group field">
     <%= form.label :level %>
-    <%= form.text_field :level %>
+    <%= form.text_field :level, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group field">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
+    <%= form.text_field :category_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group field">
     <%= form.label :author_id %>
-    <%= form.text_field :author_id %>
+    <%= form.text_field :author_id, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
+</br>
 <% end %>

@@ -2,8 +2,10 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: [:show, :destroy]
   before_action :find_test, only: [:new, :index, :create, :show, :destroy]
 
-  def show
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
+  def show
+    @question
   end
 
   def index
@@ -30,12 +32,16 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to tests_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to @test, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+
+  def rescue_with_question_not_found
+    render plain: "Question not found!"
+  end
 
   def find_question
     @question = Question.find(params[:id])

@@ -1,8 +1,6 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: %i[show]
-  # after_action :send_log_message
-  # around_action :log_execute_time
+  before_action :find_test, only: %i[show destroy]
 
   def index
     @tests = Test.all
@@ -37,24 +35,24 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
 
-    # @question = @test.questions.new(question_params)
     respond_to do |format|
       if @test.save
         format.html { redirect_to tests_path, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
+        # render plain: @test.inspect
       else
-        render plain: @test.inspect
-        # format.html { render :new }
-        # format.json { render json: @test.errors, status: :unprocessable_entity }
+        format.html { render :new }
+        format.json { render json: @test.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  private
+  def destroy
+    @test.destroy
+    render plain: 'Question was successfully destroyed.'
+  end
 
-  # def send_log_message
-  #   logger.info("Action [#{action_name}] was finished")
-  # end
+  private
 
   def find_test
     @test = Test.find(params[:id])
@@ -63,5 +61,4 @@ class TestsController < ApplicationController
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
-
 end
