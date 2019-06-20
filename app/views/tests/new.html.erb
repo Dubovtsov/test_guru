@@ -1,5 +1,11 @@
 <h1>Create new Test</h1>
 
+
+<%= render 'form', test: @test %>
+
+<%= link_to 'Back', tests_path, class: "btn btn-danger" %>
+
+<!--
 <form action="/tests" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
@@ -13,6 +19,17 @@
     <input type="text" name="test[level]" id="test-level">
   </p><br>
 
+  <p>
+    <label for="test-category">Category:</label>
+    <input type="text" name="test[category]" id="test-category">
+  </p><br>
+
+  <p>
+    <label for="test-author">Author:</label>
+    <input type="text" name="test[author]" id="test-author">
+  </p><br>
+
   <input type="submit" value="Create">
 
 </form>
+ -->
