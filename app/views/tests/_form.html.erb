@@ -21,7 +21,7 @@
 
   <div class="form-group col-md-6 dropdown">
     <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :title, class: "form-control", prompt: true %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, {prompt: true}, {class: "form-control"} %>
   </div>
 
   <div class="form-group field col-md-6">
