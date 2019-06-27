@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:show, :destroy]
-  before_action :find_test, only: [:new, :index, :create, :show, :destroy]
+  before_action :find_question, only: [:show, :destroy, :edit, :update]
+  before_action :find_test, only: [:new, :index, :create, :show, :edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -21,6 +21,19 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.save
         format.html { redirect_to @test, notice: 'Question was successfully created.' }
+        format.json { render :show, status: :created, location: @question }
+      else
+        format.html { render :new }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+
+    respond_to do |format|
+      if @question.update(question_params)
+        format.html { redirect_to test_path, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }

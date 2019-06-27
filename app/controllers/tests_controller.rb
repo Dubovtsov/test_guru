@@ -4,24 +4,6 @@ class TestsController < ApplicationController
 
   def index
     @tests = Test.all
-    # result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    # render plain: result.join("\n")
-    # render html: '<h1>Hello!</h1>'.html_safe
-
-    # render json: { tests: Test.all }
-
-    # render inline: '<p>Hello <%= %[ybuR].reverse! %>!</p>'
-
-    # render file: 'public/about', layout: false
-
-    # head :no_content
-    # render inline: '<%= console %>'
-    # logger.info(self.object_id)
-
-    # respond_to do |format|
-    #   format.html { render plain: 'All Tests' }
-    #   format.json { render json: { tests: Test.all } }
-    # end
   end
 
   def show
