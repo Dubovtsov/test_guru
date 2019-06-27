@@ -2,15 +2,14 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: [:show, :destroy, :edit, :update]
   before_action :find_test, only: [:new, :index, :create, :show, :edit, :update, :destroy]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def show
-    @question
   end
 
-  def index
-    @questions = @test.questions
-  end
+  # def index
+  #   @questions = @test.questions
+  # end
 
   def new
     @question = @test.questions.new

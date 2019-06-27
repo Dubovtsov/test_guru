@@ -1,4 +1,10 @@
+<h1><%= @question.test.title %></h1>
 <p><%= @question.body %></p>
 </br>
+<h2>Answers</h2>
+<%= link_to 'New Answer', new_question_answer_path(@question) %>
+<ol>
+  <%= render @question.answers %>
+</ol>
 <%= link_to 'Back', test_path(@test), class: "btn btn-danger" %>
 <%= link_to 'Edit', edit_test_question_path(@test), class: "btn btn-primary" %>
