@@ -10,7 +10,7 @@ class Answer < ApplicationRecord
   private
 
   def max_answers
-    amount_of_answers = question.answers.count
+    amount_of_answers = @question.answers.count
     errors.add(:question, "Answers can not be more than #{MAX_ANSWERS}") if amount_of_answers >= MAX_ANSWERS
   end
 end

@@ -1,4 +1,4 @@
-<%= form_with(model: answer, local: true) do |form| %>
+<%= form_with(model: [@question, @answer], local: true) do |form| %>
   <% if answer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
@@ -13,7 +13,12 @@
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %>
+  </div>
+
+   <div class="field">
+    <%= form.label :correct %>
+    <%= form.check_box :correct, id: :answer_correct %>
   </div>
 
   <div class="actions">
