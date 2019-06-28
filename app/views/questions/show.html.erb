@@ -6,5 +6,5 @@
 <ol>
   <%= render @question.answers %>
 </ol>
-<%= link_to 'Back', test_path(@test), class: "btn btn-danger" %>
-<%= link_to 'Edit', edit_test_question_path(@test), class: "btn btn-primary" %>
+<%= link_to 'Back', test_path(@question.test), class: "btn btn-danger" %>
+<%= link_to 'Edit', edit_question_path(@question.test), class: "btn btn-primary" %>
