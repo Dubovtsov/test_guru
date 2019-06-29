@@ -25,4 +25,3 @@ question = Question.create([{body: "Является ли Ruby объектно-
 Answer.create(body: 'Да', correct: true, question_id: question[0].id)
 Answer.create(body: 'Нет', correct: false, question_id: question[1].id)
 
-TestsUser.create(user_id: user.id, test_id: tests[0].id)
