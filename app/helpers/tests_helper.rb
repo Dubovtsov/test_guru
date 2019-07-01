@@ -5,4 +5,5 @@ module TestsHelper
   def test_level(test)
     TEST_LEVELS[test.level] || :hero
   end
+
 end
