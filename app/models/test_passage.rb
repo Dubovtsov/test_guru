@@ -5,6 +5,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  PERCENT = 100
+
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
@@ -16,6 +18,24 @@ class TestPassage < ApplicationRecord
 
   def completed?
     current_question.nil?
+  end
+
+  def success_rate
+    questions = self.test.questions
+    test_correct_answers = 0
+
+    questions.each do |q|
+      test_correct_answers += q.answers.correct.count
+    end
+    rate = self.correct_questions * PERCENT / test_correct_answers
+  end
+
+  def successfully?
+    if self.success_rate >= 85
+      true
+    else
+      false
+    end
   end
 
   private
