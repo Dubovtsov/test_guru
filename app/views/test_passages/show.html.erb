@@ -5,7 +5,7 @@
 </b>
 
 <p>
-  | <%=  %> из <%= @test_passage.test.questions.count %> |
+  | <%= @test_passage.question_number %> из <%= @test_passage.test.questions.count %> |
 </p>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
@@ -19,6 +19,3 @@
     <%= form.submit 'Next' %>
   </p>
 <% end %>
-<!--
-3. Доработайте шаблон отображения прохождения теста:
-Выводите номер текущего вопроса и общее количество вопросов теста -->
