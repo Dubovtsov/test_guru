@@ -2,14 +2,7 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[new index create update destroy]
 
-  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def show
-  end
-
-  # def index
-  #   @questions = @test.questions
-  # end
+  def show; end
 
   def new
     @question = @test.questions.new
@@ -28,12 +21,9 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
-
     respond_to do |format|
       if @question.update(question_params)
         format.html { redirect_to test_path, notice: 'Question was successfully updated.' }

@@ -6,6 +6,5 @@ module QuestionsHelper
     else
       "Edit #{question.test.title} Question"
     end
-    # render inline: current_page?(new_test_question_path) ? "Create New #{test_title} Question" : "Edit #{test_title} Question"
   end
 end

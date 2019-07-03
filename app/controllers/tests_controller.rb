@@ -22,7 +22,6 @@ class TestsController < ApplicationController
       if @test.save
         format.html { redirect_to tests_path, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
-        # render plain: @test.inspect
       else
         format.html { render :new }
         format.json { render json: @test.errors, status: :unprocessable_entity }
@@ -30,16 +29,13 @@ class TestsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-
     respond_to do |format|
       if @test.update(test_params)
         format.html { redirect_to tests_path, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
-        # render plain: @test.inspect
       else
         format.html { render :new }
         format.json { render json: @test.errors, status: :unprocessable_entity }

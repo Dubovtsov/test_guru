@@ -6,7 +6,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_next_question
 
-  PERCENT = 100
+  MIN_PERCENT = 85
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -26,15 +26,11 @@ class TestPassage < ApplicationRecord
     questions.each do |q|
       test_correct_answers += q.answers.correct.count
     end
-    rate = self.correct_questions * PERCENT / test_correct_answers
+    rate = self.correct_questions * 100 / test_correct_answers
   end
 
   def successfully?
-    if self.success_rate >= 85
-      true
-    else
-      false
-    end
+    self.success_rate >= MIN_PERCENT
   end
 
   def question_number
