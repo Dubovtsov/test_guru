@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def tests_by_level(level)
     Test.where(level: level).includes(:tests_users).where(tests_users: { user_id: self.id })
   end
+
+  def authenticate(password_string)
+
+  end
 end
