@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: %i[show destroy edit update]
+  before_action :find_test, only: %i[show destroy edit update start]
+  before_action :set_user, only: %i[start]
 
   def index
     @tests = Test.all
@@ -21,7 +22,6 @@ class TestsController < ApplicationController
       if @test.save
         format.html { redirect_to tests_path, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
-        # render plain: @test.inspect
       else
         format.html { render :new }
         format.json { render json: @test.errors, status: :unprocessable_entity }
@@ -29,17 +29,13 @@ class TestsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
-
     respond_to do |format|
       if @test.update(test_params)
         format.html { redirect_to tests_path, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
-        # render plain: @test.inspect
       else
         format.html { render :new }
         format.json { render json: @test.errors, status: :unprocessable_entity }
@@ -52,7 +48,16 @@ class TestsController < ApplicationController
     render plain: 'Question was successfully destroyed.'
   end
 
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   private
+
+  def set_user
+    @user = User.first
+  end
 
   def find_test
     @test = Test.find(params[:id])

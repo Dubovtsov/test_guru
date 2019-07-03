@@ -1,0 +1,6 @@
+<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+
+<h4 class=<%= @test_passage.successfully? ? "text-success" : "text-danger" %>>
+  Процент успеха: <%= @test_passage.success_rate %> %
+</h4>
+<h4><%= @test_passage.successfully? ? "Тест успешно пройден!" : "Тест провален!" %></h4>
