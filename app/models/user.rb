@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :answer
 
   validates :email, presence: true
+  validates :password, confirmation: true
   has_secure_password
 
   def test_passage(test)
