@@ -7,7 +7,10 @@ class User < ApplicationRecord
   has_many :questions
   has_many :answer
 
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false },
+                    format: { with: URI::MailTo::EMAIL_REGEXP,
+                    message: 'Only valid emails allowed' }
+
   validates :password, confirmation: true
   has_secure_password
 
