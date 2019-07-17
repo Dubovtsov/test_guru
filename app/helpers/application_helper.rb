@@ -7,6 +7,7 @@ module ApplicationHelper
     link_to(repo, "https://github.com/#{author}/#{repo}", html_options)
   end
 
+# переделать
   def flash_message
     if flash[:alert]
       content_tag :p, flash[:alert], class: 'alert alert-danger'
