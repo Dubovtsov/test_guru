@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'tests#index'
 
-  resources :tests do
+  resources :tests, only: :index do
     resources :questions, shallow: true, exept: :index do
       resources :answers, shallow: true, exept: :index
     end
@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     member do
       get :result
     end
+  end
+
+  namespace :admin do 
+    resources :tests
   end
 
 end
