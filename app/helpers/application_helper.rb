@@ -7,10 +7,10 @@ module ApplicationHelper
     link_to(repo, "https://github.com/#{author}/#{repo}", html_options)
   end
 
-# переделать
   def flash_message
-    if flash[:alert]
-      content_tag :p, flash[:alert], class: 'alert alert-danger'
-    end
+    flash.map do |key, msg|
+      content_tag :p, msg, class: "alert alert-#{key}"
+    end.join.html_safe
   end
+
 end

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to session[:return_to] || root_url
     else
-      flash.now[:alert] = 'Are you a Guru? Verify your Email and Password please'
+      flash.now[:danger] = 'Are you a Guru? Verify your Email and Password please'
       render :new
     end
   end
