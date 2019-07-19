@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root to: 'tests#index'
 
   resources :tests, only: :index do
-    resources :questions, shallow: true, exept: :index do
-      resources :answers, shallow: true, exept: :index
+    resources :questions, shallow: true, only: :index do
+      resources :answers, shallow: true, only: :index
     end
 
     member do
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   namespace :admin do 
     resources :tests
+    resources :questions
+    resources :answers
   end
 
 end
