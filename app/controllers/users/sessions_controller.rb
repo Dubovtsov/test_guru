@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  after_action :redirect_to_admin_tests, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -10,8 +11,8 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super
     flash[:danger] = "Привет, #{current_user.first_name}"
+    super
   end
 
   # DELETE /resource/sign_out
@@ -20,7 +21,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # protected
-
+  def redirect_to_admin_tests
+    admin_tests_path if current_user.is_a?(Admin)
+  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
