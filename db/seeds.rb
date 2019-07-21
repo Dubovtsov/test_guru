@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create(email: 'dubwin@yandex.ru')
+user = User.create(first_name: 'Ivan', last_name: 'last_name', email: 'dubwin@yandex.ru', type: 'Admin')
 # n = 1
 # 5.times do
 #   User.create(name: "Ivan-#{n += 1}", email: "dubwin-#{n}@yandex.ru")
@@ -22,6 +22,6 @@ tests = Test.create([{title: "Введение в Ruby", level: 1, category_id: 
 question = Question.create([{body: "Является ли Ruby объектно-ориентированным языком программирования?", test_id: tests[0].id},
                             {body: "Что такое DRY?", test_id: tests[1].id}])
 
-# Answer.create(body: 'Да', correct: true, question_id: question[0].id)
-# Answer.create(body: 'Нет', correct: false, question_id: question[0].id)
+Answer.create(body: 'Да', correct: true, question_id: question[0].id)
+Answer.create(body: 'Нет', correct: false, question_id: question[0].id)
 
