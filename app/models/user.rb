@@ -30,4 +30,7 @@ class User < ApplicationRecord
     Test.where(level: level).includes(:tests_users).where(tests_users: { user_id: self.id })
   end
 
+  def admin?
+    self.is_a?(Admin)
+  end
 end
