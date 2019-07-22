@@ -1,4 +1,13 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, 
+         :registerable,
+         :recoverable, 
+         :rememberable, 
+         :trackable,
+         :validatable,
+         :confirmable
 
   has_many :test_passages
   has_many :categories
@@ -12,7 +21,6 @@ class User < ApplicationRecord
                     message: 'Only valid emails allowed' }
 
   validates :password, confirmation: true
-  has_secure_password
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
@@ -22,4 +30,7 @@ class User < ApplicationRecord
     Test.where(level: level).includes(:tests_users).where(tests_users: { user_id: self.id })
   end
 
+  def admin?
+    self.is_a?(Admin)
+  end
 end
