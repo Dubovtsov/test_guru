@@ -12,9 +12,19 @@ en:
         level: "Level"
         category_id: "Category"
 
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
   tests:
     index:
       header: "Tests"
+
+  test_passages:
+    result:
+      header: "The %{title} Test was Completed!"
 
   admin:
     tests:
@@ -24,3 +34,7 @@ en:
         header: "Tests"
       new:
         header: "Create new Test"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
