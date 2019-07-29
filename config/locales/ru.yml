@@ -35,8 +35,14 @@ ru:
         success: "Тест успешно создан."
       index:
         header: "Доступные тесты"
+        new: "Новый тест"
       new:
         header: "Создать новый тест"
+      destroy:
+        success: "Тест успешно удалён."
+
+      form:
+        back: "Назад"
 
   tests_mailer:
     completed_test:

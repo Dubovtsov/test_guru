@@ -6,6 +6,8 @@ ru:
     attributes:
       test:
         title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
 
     errors:
       messages:
