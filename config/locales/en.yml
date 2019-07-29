@@ -37,4 +37,4 @@ en:
 
   tests_mailer:
     completed_test:
-      subject: "Вы успешно завершили тест на TestGuru!"
+      subject: "You just completed the TestGuru test!"
