@@ -1,7 +1,7 @@
 <h2><%= @test.title %></h2>
 
 <p>
-  Level: <strong><%= @test.level %></strong>
+  <%= t('.level') %>: <strong><%= test_level(@test) %></strong>
 </p></br>
 
 <%= render partial: "admin/questions/test_questions", collection: @test.questions %>
@@ -9,5 +9,5 @@
 <br>
 
 <%= link_to 'New Question', new_admin_question_path(@test) %> |
-<%= link_to 'Edit', edit_admin_test_path(@test) %>
-<%= link_to 'Back', admin_tests_path %>
+<%= link_to "#{t('edit')}", edit_admin_test_path(@test) %> |
+<%= link_to "#{t('back')}", admin_tests_path %>

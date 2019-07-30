@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   root to: 'tests#index'
 
   resources :tests, only: :index do
-    resources :questions, shallow: true, only: :index do
-      resources :answers, shallow: true, only: :index
+    resources :questions, shallow: true, except: :index do
+      resources :answers, shallow: true, except: :index
     end
 
     member do
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :admin do 
+  namespace :admin do
     resources :tests
     resources :questions
     resources :answers

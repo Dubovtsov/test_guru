@@ -5,6 +5,7 @@ ru:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+
     label:
       test:
         title: "Название"
@@ -12,6 +13,11 @@ ru:
         category_id: "Категория"
     select:
       prompt: "Выберите из списка"
+
+  layouts:
+    header:
+      logout: "Выход"
+      welcome_user_html: 'Добро пожаловать, <b>%{email}</b>!'
 
   shared:
     errors:
@@ -24,26 +30,51 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"
+      number_of_questions: "Вопросов в тесте"
+    test:
+      start: "Старт"
 
   test_passages:
     result:
       header: "Тест %{title} успешно завершён!"
 
+    show:
+      header: "Прохождение %{title}"
+      next: "Следующий"
+
   admin:
+    nav:
+      admin_panel: "Панель Администратора"
+      logout: "Выход"
+      welcome_admin_html: 'Добро пожаловать, <b class="nav-admin user-email">%{email}</b>!'
+
+    questions:
+      test_questions:
+        header: "Вопросы"
+
     tests:
       create:
         success: "Тест успешно создан."
       index:
         header: "Доступные тесты"
         new: "Новый тест"
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        number_of_questions: "Вопросов в тесте"
       new:
         header: "Создать новый тест"
       destroy:
         success: "Тест успешно удалён."
-
-      form:
-        back: "Назад"
+      show:
+        level: "Уровень"
 
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+
+  back: "Назад"
+  edit: "Редактировать"
