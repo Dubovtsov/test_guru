@@ -1,5 +1,5 @@
 en:
-  hello: "Hello world"
+  hello: "Hello %{name}"
 
   helpers:
     submit:

@@ -1,5 +1,7 @@
 ru:
 
+  hello: "Привет, %{name}"
+
   helpers:
     submit:
       test:
