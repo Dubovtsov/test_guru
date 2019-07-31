@@ -13,7 +13,7 @@ class Admin::QuestionsController < Admin::BaseController
     @question = @test.questions.new(question_params)
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @test, notice: 'Question was successfully created.' }
+        format.html { redirect_to admin_test_path(@test), notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }

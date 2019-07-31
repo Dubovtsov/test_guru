@@ -5,12 +5,27 @@ ru:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+      question:
+        create: "Создать вопрос"
+        update: "Обновить вопрос"
+
+      answer:
+        create: "Создать ответ"
+        update: "Обновить ответ"
 
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+
+      question:
+        body: "Содержание"
+
+      answer:
+        body: "Содержание"
+        correct: "Правильный"
+
     select:
       prompt: "Выберите из списка"
 
@@ -51,10 +66,6 @@ ru:
       logout: "Выход"
       welcome_admin_html: 'Добро пожаловать, <b class="nav-admin user-email">%{email}</b>!'
 
-    questions:
-      test_questions:
-        header: "Вопросы"
-
     tests:
       create:
         success: "Тест успешно создан."
@@ -71,6 +82,19 @@ ru:
         success: "Тест успешно удалён."
       show:
         level: "Уровень"
+        header: "Вопросы"
+        new_question: "Добавить новый вопрос"
+
+    questions:
+      show:
+        header: "Доступные ответы"
+        new_answer: "Добавить новый ответ"
+
+    answers:
+      new:
+        title: "Добавление ответа"
+      edit:
+        title: "Редактирование ответа"
 
   tests_mailer:
     completed_test:
@@ -78,3 +102,5 @@ ru:
 
   back: "Назад"
   edit: "Редактировать"
+  show: "Показать"
+  destroy: "Удалить"

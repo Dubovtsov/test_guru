@@ -1,11 +1,11 @@
-<h1><%= @question.test.title %></h1>
-<p><%= @question.body %></p>
+<h2><%= @question.test.title %></h2>
+<h4><%= @question.body %></h4>
 </br>
-<h2>Answers</h2>
+<h2><%= t('.header') %></h2>
 
-<%= link_to 'New Answer', new_admin_answer_path(@question) %>
+<%= link_to "#{t('.new_answer')}", new_admin_question_answer_path(@question) %>
 
 <ol>
   <%= render @question.answers %>
 </ol>
-<%= link_to 'Back', admin_test_path(@question.test), class: "btn btn-danger" %>
+<%= link_to "#{t('back')}", admin_test_path(@question.test), class: "btn btn-danger" %>

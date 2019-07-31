@@ -4,10 +4,12 @@
   <%= t('.level') %>: <strong><%= test_level(@test) %></strong>
 </p></br>
 
-<%= render partial: "admin/questions/test_questions", collection: @test.questions %>
+<h4><%= t('.header') %></h4>
+
+<%= render @test.questions %>
 
 <br>
 
-<%= link_to 'New Question', new_admin_question_path(@test) %> |
+<%= link_to "#{t('.new_question')}", new_admin_test_question_path(@test) %> |
 <%= link_to "#{t('edit')}", edit_admin_test_path(@test) %> |
 <%= link_to "#{t('back')}", admin_tests_path %>
