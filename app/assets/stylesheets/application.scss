@@ -4,13 +4,30 @@
  */
 @import "bootstrap";
 
+$link-color: #17B6DE;
+$main-dark-color: #0C1F2E;
+$main-light-color: #65B6FD;
+
 body {
   min-height: 100vh;
+}
+
+.main-dark-color {
+  color: $main-dark-color;
+}
+
+.bg-light-color {
+  background-color: $main-light-color;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  line-height: 60px;
+  line-height: 20px;
+  background-color: $main-dark-color;
+}
+
+a {
+  color: $link-color;
 }

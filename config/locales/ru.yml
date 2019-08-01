@@ -56,7 +56,7 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершён!"
+      header: "Тест %{title} завершён!"
 
     show:
       header: "Прохождение %{title}"
