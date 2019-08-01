@@ -1,25 +1,108 @@
 ru:
 
+  hello: "Привет, %{name}"
+
   helpers:
     submit:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+      question:
+        create: "Создать вопрос"
+        update: "Обновить вопрос"
+
+      answer:
+        create: "Создать ответ"
+        update: "Обновить ответ"
+
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
 
+      question:
+        body: "Содержание"
+
+      answer:
+        body: "Содержание"
+        correct: "Правильный"
+
+    select:
+      prompt: "Выберите из списка"
+
+  layouts:
+    header:
+      logout: "Выход"
+      welcome_user_html: 'Добро пожаловать, <b>%{email}</b>!'
+
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+
   tests:
     index:
       header: "Доступные тесты"
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"
+      number_of_questions: "Вопросов в тесте"
+    test:
+      start: "Старт"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершён!"
+
+    show:
+      header: "Прохождение %{title}"
+      next: "Следующий"
 
   admin:
+    nav:
+      admin_panel: "Панель Администратора"
+      logout: "Выход"
+      welcome_admin_html: 'Добро пожаловать, <b class="nav-admin user-email">%{email}</b>!'
+
     tests:
       create:
         success: "Тест успешно создан."
       index:
         header: "Доступные тесты"
+        new: "Новый тест"
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        number_of_questions: "Вопросов в тесте"
       new:
         header: "Создать новый тест"
+      destroy:
+        success: "Тест успешно удалён."
+      show:
+        level: "Уровень"
+        header: "Вопросы"
+        new_question: "Добавить новый вопрос"
+
+    questions:
+      show:
+        header: "Доступные ответы"
+        new_answer: "Добавить новый ответ"
+
+    answers:
+      new:
+        title: "Добавление ответа"
+      edit:
+        title: "Редактирование ответа"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
+
+  back: "Назад"
+  edit: "Редактировать"
+  show: "Показать"
+  destroy: "Удалить"

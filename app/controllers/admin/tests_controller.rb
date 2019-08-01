@@ -20,7 +20,7 @@ class Admin::TestsController < Admin::BaseController
 
     respond_to do |format|
       if @test.save
-        format.html { redirect_to tests_path, notice: t(".success") }
+        format.html { redirect_to admin_tests_path, notice: t(".success") }
         format.json { render :show, status: :created, location: @test }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class Admin::TestsController < Admin::BaseController
   def update
     respond_to do |format|
       if @test.update(test_params)
-        format.html { redirect_to tests_path, notice: 'Test was successfully created.' }
+        format.html { redirect_to admin_tests_path, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    render plain: 'Question was successfully destroyed.'
+    redirect_to admin_tests_path, notice: t(".success")
   end
 
   private
@@ -55,6 +55,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 end

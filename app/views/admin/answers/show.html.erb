@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
-<h1>Question</h1>
-<p>
+<h1>
   <%= @answer.question.body %>
-</p>
+</h1>
 
 <p>
   <b>Answer:</b>
@@ -14,5 +13,5 @@
   <%= @answer.correct %>
 </p>
 
-<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
-<%= link_to 'Back', admin_question_path(@answer.question) %>
+<%= link_to "#{t('edit')}", edit_admin_answer_path(@answer) %> |
+<%= link_to "#{t('back')}", admin_question_path(@answer.question) %>
