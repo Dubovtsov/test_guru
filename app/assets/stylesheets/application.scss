@@ -4,7 +4,7 @@
  */
 @import "bootstrap";
 
-$link-color: #17B6DE;
+$link-color: #2196F3;
 $main-dark-color: #0C1F2E;
 $main-light-color: #65B6FD;
 
@@ -30,4 +30,20 @@ footer {
 
 a {
   color: $link-color;
+}
+
+.alert {
+  margin-bottom: 0;
+}
+
+.alert-notice {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-alert {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }
