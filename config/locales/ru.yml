@@ -64,7 +64,6 @@ ru:
 
   admin:
     nav:
-      admin_panel: "Панель Администратора"
       logout: "Выход"
       welcome_admin_html: 'Добро пожаловать, <b class="nav-admin user-email">%{email}</b>!'
 
@@ -108,3 +107,4 @@ ru:
   destroy: "Удалить"
   login: "Войти"
   signup: "Регистрация"
+  admin_panel: "Панель Администратора"

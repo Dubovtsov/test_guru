@@ -1,9 +1,18 @@
-<tr>
+<tr class="font-weight-light">
   <td><%= test.title %></td>
   <td><%= test_level(test) %></td>
   <td><%= test.category.title %></td>
   <td><%= test.questions.count %></td>
-  <td><%= link_to "#{t('show')}", admin_test_path(test) %></td>
-  <td><%= link_to "#{t('edit')}", edit_admin_test_path(test) %></td>
-  <td><%= link_to "#{t('destroy')}", admin_test_path(test), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td class="px-1"><%= link_to admin_test_path(test) do %>
+ <i class="material-icons md-18">list_alt</i>
+<% end %></td>
+  <td class="px-1"><%= link_to edit_admin_test_path(test) do %>
+    <i class="material-icons md-18">create</i>
+    <% end %>
+  </td>
+  <td class="px-1"><%= link_to admin_test_path(test), method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <i class="material-icons md-18">delete</i>
+    <% end %>
+  </td>
 </tr>
+

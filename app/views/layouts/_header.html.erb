@@ -1,6 +1,13 @@
 <nav class="navbar navbar-light bg-light">
-  <%= link_to "TestGuru", tests_path, class: "navbar-brand" %>
-
+  <div>
+    <%= link_to "TestGuru", tests_path, class: "navbar-brand" %>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <%= link_to "#{t('admin_panel')}", admin_tests_path, class: "" %>
+      <% end %>
+    <% end %>
+  </div>
+  
   <span class="navbar-text">
     <% if user_signed_in? %>
     
