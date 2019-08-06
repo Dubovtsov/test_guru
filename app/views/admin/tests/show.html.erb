@@ -10,6 +10,6 @@
 
 <br>
 
-<%= link_to "#{t('.new_question')}", new_admin_test_question_path(@test) %> |
-<%= link_to "#{t('edit')}", edit_admin_test_path(@test) %> |
-<%= link_to "#{t('back')}", admin_tests_path %>
+<%= link_to "#{t('.new_question')}", new_admin_test_question_path(@test), class: "btn btn-primary" %>
+<%= link_to "#{t('edit')}", edit_admin_test_path(@test), class: "btn btn-info" %>
+<%= link_to "#{t('back')}", admin_tests_path, class: "btn btn-danger" %>

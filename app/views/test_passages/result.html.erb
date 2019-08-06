@@ -1,6 +1,10 @@
-<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<div class="mt-3 row">
+  <div class="col col-md-12 text-center">
+    <h2 class="main-dark-color"><%= t('.header', title: @test_passage.test.title) %></h2>
 
-<h4 class=<%= @test_passage.successfully? ? "text-success" : "text-danger" %>>
-  Процент успеха: <%= @test_passage.success_rate %> %
-</h4>
-<h4><%= @test_passage.successfully? ? "Тест успешно пройден!" : "Тест провален!" %></h4>
+    <h4 class=<%= @test_passage.successfully? ? "text-success" : "text-danger" %>>
+      Процент успеха: <%= @test_passage.success_rate %> %
+    </h4>
+    <p><%= @test_passage.successfully? ? "Тест успешно пройден!" : "Тест провален!" %></p>
+  </div>
+</div>
