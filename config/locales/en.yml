@@ -26,8 +26,8 @@ en:
     result:
       header: "The %{title} Test was Completed!"
     gist:
-      success: "Gist was success!"
-      failure: "Во время сохранения gist произошла ошибка"
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"
 
   admin:
     tests:
