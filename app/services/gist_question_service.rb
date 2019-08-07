@@ -1,9 +1,12 @@
 class GistQuestionService
 
+  ROOT_ENDPOINT = 'https://api.github.com'
+  ACCESS_TOKEN = 'd6fb1320cf9ea43bc8684892e2040138e9cf5e27'
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = client || Octokit::Client.new(access_token: "ACCESS_TOKEN")
   end
 
   def call
