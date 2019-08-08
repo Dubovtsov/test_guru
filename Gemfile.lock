@@ -253,7 +253,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise (~> 4.0)
-  faraday
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener

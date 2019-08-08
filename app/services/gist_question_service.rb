@@ -1,16 +1,18 @@
 class GistQuestionService
-
-  ROOT_ENDPOINT = 'https://api.github.com'
-  ACCESS_TOKEN = 'd6fb1320cf9ea43bc8684892e2040138e9cf5e27'
+  attr_reader :response
 
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(access_token: "ACCESS_TOKEN")
+    @client = client || Octokit::Client.new(access_token: ENV["ACCESS_TOKEN"])
   end
 
   def call
-    @client.create_gist(gist_params)
+    @response = @client.create_gist(gist_params)
+  end
+
+  def success?
+    @client.last_response.status == 201 if @client.last_response
   end
 
   private

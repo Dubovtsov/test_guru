@@ -24,6 +24,9 @@
 /node_modules
 /yarn-error.log
 
+# LOCAL_ENV
+/config/local_env.yml
+
 /public/assets
 .byebug_history
 
