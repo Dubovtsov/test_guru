@@ -19,7 +19,7 @@ class GistQuestionService
 
   def gist_params
     {
-      description: "A question about #{@test.title} from TestGuru",
+      description: "#{I18n.t('gist_description')} #{@test.title}",
       files: {
         'test-guru-question.txt' => {
           content: gist_content

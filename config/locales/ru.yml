@@ -61,9 +61,10 @@ ru:
     show:
       header: "Прохождение %{title}"
       next: "Следующий"
+      gist_question: "Cохранить вопрос в гист"
     gist:
-      success: "Gist успешно сохранен!"
-      failure: "Во время сохранения gist произошла ошибка"
+      success: '%{url} успешно сохранен!'
+      failure: 'Во время сохранения gist произошла ошибка'
 
   admin:
     nav:
@@ -100,6 +101,12 @@ ru:
       edit:
         title: "Редактирование ответа"
 
+    gists:
+      index:
+        header: "Гисты"
+        question_title: "Вопрос"
+        gist: "Ссылка на гист"
+
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
@@ -111,3 +118,4 @@ ru:
   login: "Войти"
   signup: "Регистрация"
   admin_panel: "Панель Администратора"
+  gist_description: "Вопрос из теста"

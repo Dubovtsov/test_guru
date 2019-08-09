@@ -36,7 +36,8 @@ gem 'devise', '~> 4.0'
 
 # NETWORKING
 # gem 'faraday'
-gem 'dotenv-rails'
+
+gem 'dotenv-rails', :groups => [:development, :test]
 
 gem "octokit", "~> 4.0"
 # LOCALIZATION
