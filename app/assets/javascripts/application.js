@@ -29,8 +29,12 @@ document.addEventListener('turbolinks:load', function() {
     if (input == pass) {
       confirmPass.classList.remove('border-red')
       confirmPass.classList.add('border-green')
+      document.querySelector('.octicon-x').classList.add('hide')
+      document.querySelector('.octicon-check').classList.remove('hide')
     } else {
       confirmPass.classList.add('border-red')
+      document.querySelector('.octicon-x').classList.remove('hide')
+      document.querySelector('.octicon-check').classList.add('hide')
     }
 
     })

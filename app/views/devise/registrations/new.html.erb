@@ -31,7 +31,9 @@
             </p>
 
             <p>
-              <%= f.label :password_confirmation %><br />
+              <%= f.label :password_confirmation %>
+              <%= octicon 'check', class: 'text-success hide' %>
+              <%= octicon 'x', class: 'text-danger hide' %>
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
             </p>
 
