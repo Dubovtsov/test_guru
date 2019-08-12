@@ -19,13 +19,20 @@
 //= require bootstrap-sprockets
 
 document.addEventListener('turbolinks:load', function() {
-  var pass = document.getElementById('user_password')
+
   var confirmPass = document.getElementById('user_password_confirmation')
 
-  if (confirmPass) { confirmPass.addEventListener('keydown', function() {
+  if (confirmPass) { confirmPass.addEventListener('keyup', function() {
+    var pass = document.getElementById('user_password').value
     var input = document.getElementById('user_password_confirmation').value
 
-    alert(input)
+    if (input == pass) {
+      confirmPass.classList.remove('border-red')
+      confirmPass.classList.add('border-green')
+    } else {
+      confirmPass.classList.add('border-red')
+    }
+
     })
   }
 })
