@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to gist.question.body.truncate(25, separator: ' '), [:admin, gist.question] %></td>
+  <td><%= link_to 'Gist', gist.url, target: '_blank' %></td>
+  <td><%= mail_to gist.user.email %></td>
+<tr>

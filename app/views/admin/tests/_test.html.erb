@@ -4,8 +4,9 @@
   <td><%= test.category.title %></td>
   <td><%= test.questions.count %></td>
   <td class="px-1"><%= link_to admin_test_path(test) do %>
- <i class="material-icons md-18">list_alt</i>
-<% end %></td>
+    <i class="material-icons md-18">list_alt</i>
+    <% end %>
+  </td>
   <td class="px-1"><%= link_to edit_admin_test_path(test) do %>
     <i class="material-icons md-18">create</i>
     <% end %>

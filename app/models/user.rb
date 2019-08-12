@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :questions
   has_many :answer
+  has_many :gists
 
   validates :email, presence: true, uniqueness: { case_sensitive: false },
                     format: { with: URI::MailTo::EMAIL_REGEXP,
