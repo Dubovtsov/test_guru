@@ -17,26 +17,4 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-
-document.addEventListener('turbolinks:load', function() {
-
-  var confirmPass = document.getElementById('user_password_confirmation')
-
-  if (confirmPass) { confirmPass.addEventListener('keyup', function() {
-    var pass = document.getElementById('user_password').value
-    var input = document.getElementById('user_password_confirmation').value
-
-    if (input == pass) {
-      confirmPass.classList.remove('border-red')
-      confirmPass.classList.add('border-green')
-      document.querySelector('.octicon-x').classList.add('hide')
-      document.querySelector('.octicon-check').classList.remove('hide')
-    } else {
-      confirmPass.classList.add('border-red')
-      document.querySelector('.octicon-x').classList.remove('hide')
-      document.querySelector('.octicon-check').classList.add('hide')
-    }
-
-    })
-  }
-})
+//

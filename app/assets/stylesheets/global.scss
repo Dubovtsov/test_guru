@@ -1,3 +1,5 @@
+$color-iron: #CED4DA;
+
 .pointer {
   cursor: pointer;
 }
@@ -7,9 +9,13 @@
 }
 
 .border-green {
-  border: 1px solid green;
+  border: 2px solid green;
 }
 
 .border-red {
-  border: 1px solid red;
+  border: 2px solid red;
+}
+
+.border-iron {
+  border: 1px solid $color-iron;
 }

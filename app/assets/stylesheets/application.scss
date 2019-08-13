@@ -13,6 +13,8 @@
 $link-color: #2196F3;
 $main-dark-color: #0C1F2E;
 $main-light-color: #65B6FD;
+$bg-light-grey: #F8F9FA;
+
 
 body {
   min-height: 100vh;
@@ -24,6 +26,10 @@ body {
 
 .bg-light-color {
   background-color: $main-light-color;
+}
+
+.bg-light-grey {
+  background-color: $bg-light-grey;
 }
 
 footer {
@@ -52,4 +58,8 @@ a {
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
+}
+
+.form-group {
+  margin-bottom: 0;
 }
