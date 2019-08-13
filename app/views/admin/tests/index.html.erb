@@ -1,7 +1,9 @@
-<h1><%= t('.header') %>
- |
-<%= link_to "#{t('.new')}", new_admin_test_path, class: "btn btn-primary" %>
+<h1>
+  <%= t('.header') %> |
+  <%= link_to "#{t('.new')}", new_admin_test_path, class: "btn btn-primary" %>
 </h1>
+
+<%= render 'shared/errors', resource: @test %>
 
 <table class="table">
   <thead>

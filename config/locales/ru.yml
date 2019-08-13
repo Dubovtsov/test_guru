@@ -89,6 +89,9 @@ ru:
         level: "Уровень"
         header: "Вопросы"
         new_question: "Добавить новый вопрос"
+        
+      form_inline:
+          submit: "ОК"
 
     questions:
       show:
