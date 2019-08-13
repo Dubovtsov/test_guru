@@ -29,12 +29,10 @@ class TestPassagesController < ApplicationController
         url: result.response.html_url)
 
       { notice: t('.success', url: (helpers.link_to 'Gist', result.response.html_url, target: '_blank')) }
-      redirect_to @test_passage, flash_options
     else
       { alert: t('.failure') }
-      redirect_to @test_passage, flash_options
     end
-
+    redirect_to @test_passage, flash_options
 
   end
 
