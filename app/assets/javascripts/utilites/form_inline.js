@@ -4,7 +4,9 @@ document.addEventListener('turbolinks:load', function() {
 
   var errors = document.querySelector('.resource-errors')
 
-  if (window.location.pathname.includes('tests')) {
+  var formInline = document.querySelector('.form-inline')
+
+  if (formInline) {
     if (errors) {
       var resourceId = errors.dataset.resourceId
       formInlineHandler(resourceId)
