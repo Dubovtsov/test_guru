@@ -16,8 +16,14 @@ tests = Test.create([{title: "Введение в Ruby", level: 1, category_id: 
                     {title: "Миграции в Rails", level: 1, category_id: categories[1].id, author_id: user.id},
                     {title: "Генераторы Rails", level: 1, category_id: categories[1].id, author_id: user.id}])
 
-question = Question.create([{body: "Является ли Ruby объектно-ориентированным языком программирования?", test_id: tests[0].id},
-                            {body: "Что такое DRY?", test_id: tests[1].id}])
+questions = Question.create([{body: "Является ли Ruby объектно-ориентированным языком программирования?", test_id: tests[0].id},
+                            {body: "Что такое DRY?", test_id: tests[1].id},
+                            {body: "Является ли Ruby объектно-ориентированным языком программирования?", test_id: tests[2].id},
+                            {body: "Что такое DRY?", test_id: tests[0].id}])
 
-Answer.create(body: 'Да', correct: true, question_id: question[0].id)
-Answer.create(body: 'Нет', correct: false, question_id: question[0].id)
+Answer.create(body: 'Да', correct: true, question_id: questions[0].id)
+Answer.create(body: 'Нет', correct: false, question_id: questions[0].id)
+Answer.create(body: 'Да', correct: false, question_id: questions[1].id)
+Answer.create(body: 'Нет', correct: true, question_id: questions[1].id)
+Answer.create(body: 'Да', correct: false, question_id: questions[3].id)
+Answer.create(body: 'Нет', correct: true, question_id: questions[3].id)

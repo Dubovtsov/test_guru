@@ -1,13 +1,23 @@
 <div class="row">
   <div class="col col-md-12">
     <h2 class="main-dark-color"><%= t('.header', title: @test_passage.test.title) %></h2>
-
-    <div class="p-3 card border border-primary">
+    <%= render 'shared/progress_bar' %>
+    <div class="p-3 card question-card border-iron bg-light-grey">
       <p>
         <b class=""><%= @test_passage.current_question.body %></b>
-        <span class="float-right font-weight-light">| <%= @test_passage.question_number %> из <%= @test_passage.test.questions.count %> |</span>
+
+        <%= content_tag :span,
+                          id: "progress",
+                          class: 'float-right font-weight-light',
+                          data: {
+                            current_question_number: @test_passage.question_number,
+                            questions_count: @test_passage.test.questions.count
+                          } do %>
+
+        | <%= @test_passage.question_number %> из <%= @test_passage.test.questions.count %> |
+        <% end %>
       </p>
-  
+
       <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
         <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
           <div class="form-group pl-4">
@@ -20,10 +30,10 @@
 
           <p><%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post %></p>
           <p>
-            <%= form.submit "#{t('.next')}", class: "btn btn-light btn-sm" %>
+            <%= form.submit "#{t('.next')}", class: "btn btn-outline-primary btn-sm" %>
           </p>
       <% end %>
     </div>
   </div>
-  
+
 </div>

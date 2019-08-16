@@ -1,22 +1,17 @@
 <tr class="font-weight-light">
   <td class="align-middle">
-    <%= content_tag :span, test.title, class: "test-title", data: { test_id: test.id } %>
+    <%= content_tag :span, "#{link_to test.title, admin_test_path(test)}".html_safe, class: "test-title", data: { test_id: test.id } %>
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td class="align-middle"><%= test_level(test) %></td>
   <td class="align-middle"><%= test.category.title %></td>
   <td class="align-middle"><%= test.questions.count %></td>
-  <td class="px-1 align-middle"><%= link_to admin_test_path(test) do %>
-    <i class="material-icons md-18">list_alt</i>
-    <% end %>
+
+  <td class="align-middle">
+    <%= link_to t('.edit'), edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' %>
   </td>
-  <td class="px-1 align-middle">
-    <%= link_to edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' do %>
-    <i class="material-icons md-18">create</i>
-    <% end %>
-  </td>
-  <td class="px-1 align-middle"><%= link_to admin_test_path(test), method: :delete, data: { confirm: 'Are you sure?' } do %>
-    <i class="material-icons md-18">delete</i>
+  <td class="px-1"><%= link_to admin_test_path(test), method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <i class="align-middle material-icons md-18">delete</i>
     <% end %>
   </td>
 </tr>

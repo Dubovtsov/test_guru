@@ -1,13 +1,18 @@
 document.addEventListener('turbolinks:load', function() {
 
-  $('.form-inline-link').on('click', formInlinLinkHandler)
+  $('.form-inline-link').on('click', formInlineLinkHandler)
 
   var errors = document.querySelector('.resource-errors')
 
-  if (errors) {
-    var resourceId = errors.dataset.resourceId
-    formInlineHandler(resourceId)
-  }
+  if (window.location.pathname.includes('tests')) {
+    if (errors) {
+      var resourceId = errors.dataset.resourceId
+      formInlineHandler(resourceId)
+    }
+
+  } else {
+
+}
 })
 
 function formInlineLinkHandler(event) {
@@ -20,7 +25,7 @@ function formInlineLinkHandler(event) {
 function formInlineHandler(testId) {
   var link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]')
   var $testTitle = $('.test-title[data-test-id="' + testId + '"]')
-  var $formInlineHandlere = $('.form-inline[data-test-id="' + testId + '"]')
+  var $formInline = $('.form-inline[data-test-id="' + testId + '"]')
 
   $formInline.toggle()
   $testTitle.toggle()
