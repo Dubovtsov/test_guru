@@ -4,8 +4,9 @@ document.addEventListener('turbolinks:load', function() {
     var progress = document.querySelector('#progress')
     var current = progress.dataset.currentQuestionNumber
     var count = progress.dataset.questionsCount
+    var oneQuestion = 1/count*100
     var percent = current/count*100
     var progressBar = document.querySelector('progress')
-    progressBar.value = percent
+    progressBar.value = percent - oneQuestion
   }
 })
