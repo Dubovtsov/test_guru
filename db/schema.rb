@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_210110) do
+ActiveRecord::Schema.define(version: 2019_08_19_074909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,4 +99,5 @@ ActiveRecord::Schema.define(version: 2019_08_09_210110) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "tests", "users", column: "author_id"
 end
