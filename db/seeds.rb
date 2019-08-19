@@ -1,7 +1,7 @@
 user = User.new(
   first_name: 'Ivan',
   last_name: 'last_name',
-  email: 'dubwin@yandex.ru',
+  email: 'dubwin@ya.ru',
   password: '123456789',
   password_confirmation: '123456789',
   type: 'Admin'
