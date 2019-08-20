@@ -27,11 +27,8 @@
             </div>
             </div>
         <% end %>
-
+          <p><%= form.submit "#{t('.next')}", class: "btn btn-outline-primary btn-sm" %></p>
           <p><%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post %></p>
-          <p>
-            <%= form.submit "#{t('.next')}", class: "btn btn-outline-primary btn-sm" %>
-          </p>
       <% end %>
     </div>
   </div>
