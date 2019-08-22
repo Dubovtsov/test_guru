@@ -66,6 +66,10 @@ ru:
       success: '%{url} успешно сохранен!'
       failure: 'Во время сохранения gist произошла ошибка'
 
+  feedbacks:
+    new:
+      send: "Отправить"
+
   admin:
     nav:
       logout: "Выход"
@@ -89,7 +93,7 @@ ru:
         level: "Уровень"
         header: "Вопросы"
         new_question: "Добавить новый вопрос"
-        
+
       form_inline:
           submit: "ОК"
 

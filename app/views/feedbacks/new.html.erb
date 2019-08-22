@@ -1,0 +1,31 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-4">
+    <h2>Форма обратной связи</h2>
+
+    <div class="card border-iron bg-light-grey">
+      <div class="card-body">
+        <%= form_for(@feedback, url: new_feedback_path) do |f| %>
+          <div class="form-group">
+            <p>
+              <%= f.label "Текст сообщения" %><br />
+              <%= f.text_area :body, autofocus: true, class: "form-control" %>
+            </p>
+
+            <p>
+              <%= f.label 'От:' %><br />
+              <%= f.text_field :user_id, value: current_user.email, class: "form-control", disabled: true %>
+            </p>
+
+            <div class="form-group field col-md-6">
+              <%= f.hidden_field :author_id, value: current_user.id %>
+            </div>
+
+            <%= f.submit t('.send'), class: "btn btn-primary" %>
+
+          <% end %>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
