@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'tests#index'
 
+  # resources :feedbacks, only: %i[new create]
+  # match "/feedbacks", to: 'feedbacks#send_mail', via: %i[get post]
+
+  get    'feedbacks/new', to: 'feedbacks#new'
+  post   'feedbacks',     to: 'feedbacks#send_mail'
+
   resources :tests, only: :index do
     member do
       post :start
@@ -28,8 +34,7 @@ Rails.application.routes.draw do
           resources :answers, shallow: true, except: :index
         end
       end
-
-      resources :gists, only: %i[index]
+    resources :gists, only: %i[index]
   end
 
 end

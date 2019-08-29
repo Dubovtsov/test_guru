@@ -2,7 +2,7 @@
   <div class="col col-md-12">
     <h2 class="main-dark-color"><%= t('.header', title: @test_passage.test.title) %></h2>
     <%= render 'shared/progress_bar' %>
-    <div class="p-3 card question-card border-iron bg-light-grey">
+    <div class="p-3 card question-card border-iron shadow bg-white">
       <p>
         <b class=""><%= @test_passage.current_question.body %></b>
 
@@ -27,11 +27,8 @@
             </div>
             </div>
         <% end %>
-
+          <p><%= form.submit "#{t('.next')}", class: "btn btn-outline-primary btn-sm" %></p>
           <p><%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post %></p>
-          <p>
-            <%= form.submit "#{t('.next')}", class: "btn btn-outline-primary btn-sm" %>
-          </p>
       <% end %>
     </div>
   </div>
