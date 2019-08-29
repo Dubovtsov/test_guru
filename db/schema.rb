@@ -30,12 +30,6 @@ ActiveRecord::Schema.define(version: 2019_08_22_123615) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "feedbacks", force: :cascade do |t|
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "gists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "question_id"
