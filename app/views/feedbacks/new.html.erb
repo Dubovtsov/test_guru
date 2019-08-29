@@ -4,7 +4,7 @@
 
     <div class="card border-iron bg-light-grey">
       <div class="card-body">
-        <%= form_for(@feedback, url: new_feedback_path) do |f| %>
+        <%= form_with(url: feedbacks_url, method: "post") do |f| %>
           <div class="form-group">
             <p>
               <%= f.label "Текст сообщения" %><br />
@@ -13,12 +13,8 @@
 
             <p>
               <%= f.label 'От:' %><br />
-              <%= f.text_field :user_id, value: current_user.email, class: "form-control", disabled: true %>
+              <%= f.text_field :email, value: current_user.email, class: "form-control", disabled: true %>
             </p>
-
-            <div class="form-group field col-md-6">
-              <%= f.hidden_field :author_id, value: current_user.id %>
-            </div>
 
             <%= f.submit t('.send'), class: "btn btn-primary" %>
 
