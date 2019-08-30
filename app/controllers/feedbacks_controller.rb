@@ -9,7 +9,7 @@ class FeedbacksController < ApplicationController
     @body = params[:body]
     FeedbacksMailer.send_feedback(@email, @body).deliver_now
 
-    redirect_to root_path, notice: 'Message sent'
+    redirect_to root_path, notice: t{'.message_sent'}
   end
 
   private
