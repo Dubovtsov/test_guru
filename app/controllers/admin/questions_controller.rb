@@ -27,7 +27,7 @@ class Admin::QuestionsController < Admin::BaseController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to admin_test_path(@test), notice: 'Question was successfully updated.' }
+        format.html { redirect_to admin_test_path(@question.test), notice: 'Question was successfully updated.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -39,7 +39,7 @@ class Admin::QuestionsController < Admin::BaseController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to @test, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to admin_test_path(@question.test), notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
