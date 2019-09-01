@@ -1,7 +1,7 @@
 class Admin::QuestionsController < Admin::BaseController
 
   before_action :find_question, only: %i[show destroy edit update]
-  before_action :find_test, only: %i[new index create]
+  before_action :find_test, only: %i[new index create update destroy]
 
   def show; end
 
