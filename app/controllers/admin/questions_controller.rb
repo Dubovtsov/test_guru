@@ -1,7 +1,7 @@
 class Admin::QuestionsController < Admin::BaseController
 
   before_action :find_question, only: %i[show destroy edit update]
-  before_action :find_test, only: %i[new index create update destroy]
+  before_action :find_test, only: %i[new create]
 
   def show; end
 
@@ -25,23 +25,16 @@ class Admin::QuestionsController < Admin::BaseController
   def edit; end
 
   def update
-    respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to admin_test_path(@question.test), notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    if @question.update(question_params)
+      redirect_to admin_test_path(@question.test), notice: 'Question was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @question.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_test_path(@question.test), notice: 'Question was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to admin_test_path(@question.test), notice: 'Question was successfully destroyed.'
   end
 
   private
