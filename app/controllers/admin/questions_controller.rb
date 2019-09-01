@@ -27,7 +27,7 @@ class Admin::QuestionsController < Admin::BaseController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to test_path, notice: 'Question was successfully updated.' }
+        format.html { redirect_to admin_test_path(@test), notice: 'Question was successfully updated.' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
