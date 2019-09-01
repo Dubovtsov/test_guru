@@ -1,21 +1,21 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :registerable,
-         :recoverable, 
-         :rememberable, 
+         :recoverable,
+         :rememberable,
          :trackable,
          :validatable,
          :confirmable
 
-  has_many :test_passages
-  has_many :categories
+  has_many :test_passages, dependent: :destroy
+  has_many :categories, dependent: :destroy
   has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
   has_many :tests, through: :test_passages
-  has_many :questions
-  has_many :answer
-  has_many :gists
+  has_many :questions, dependent: :destroy
+  has_many :answer, dependent: :destroy
+  has_many :gists, dependent: :destroy
 
   validates :email, presence: true, uniqueness: { case_sensitive: false },
                     format: { with: URI::MailTo::EMAIL_REGEXP,
