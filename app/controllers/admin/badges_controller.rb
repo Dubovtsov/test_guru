@@ -1,4 +1,4 @@
-class BadgesController < ApplicationController
+class Admin::BadgesController < Admin::BaseController
   before_action :set_badge, only: [:show, :edit, :update, :destroy]
 
   # GET /badges
@@ -28,7 +28,7 @@ class BadgesController < ApplicationController
 
     respond_to do |format|
       if @badge.save
-        format.html { redirect_to @badge, notice: 'Badge was successfully created.' }
+        format.html { redirect_to admin_badge_path(@badge), notice: 'Badge was successfully created.' }
         format.json { render :show, status: :created, location: @badge }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BadgesController < ApplicationController
   def update
     respond_to do |format|
       if @badge.update(badge_params)
-        format.html { redirect_to @badge, notice: 'Badge was successfully updated.' }
+        format.html { redirect_to admin_badge_path(@badge), notice: 'Badge was successfully updated.' }
         format.json { render :show, status: :ok, location: @badge }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class BadgesController < ApplicationController
   def destroy
     @badge.destroy
     respond_to do |format|
-      format.html { redirect_to badges_url, notice: 'Badge was successfully destroyed.' }
+      format.html { redirect_to admin_badges_path, notice: 'Badge was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

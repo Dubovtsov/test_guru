@@ -79,7 +79,7 @@ ru:
       create:
         success: "Тест успешно создан."
       index:
-        header: "Доступные тесты"
+        header: "Список тестов"
         new: "Новый тест"
         title: "Название"
         level: "Уровень"
@@ -96,6 +96,16 @@ ru:
 
       form_inline:
           submit: "ОК"
+
+    categories:
+      index:
+        header: "Список категорий"
+        new: "Добавить категорию"
+
+    badges:
+      index:
+        header: "Список наград"
+        new: "Добавить достижение"
 
     questions:
       show:
