@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :badges
   # devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
   # get 'sessions/new'
