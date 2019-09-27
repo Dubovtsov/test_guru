@@ -10,12 +10,14 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :test_passages, dependent: :destroy
+  has_many :user_badges, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :authored_tests, class_name: 'Test', foreign_key: :author_id
   has_many :tests, through: :test_passages
   has_many :questions, dependent: :destroy
   has_many :answer, dependent: :destroy
   has_many :gists, dependent: :destroy
+  has_many :badges, through: :user_badges
 
   validates :email, presence: true, uniqueness: { case_sensitive: false },
                     format: { with: URI::MailTo::EMAIL_REGEXP,

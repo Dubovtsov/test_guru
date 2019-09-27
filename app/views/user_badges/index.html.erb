@@ -1,0 +1,21 @@
+<h1 class="main-dark-color"><%= t('.header') %></h1>
+
+<table class="table bg-white border-iron shadow">
+
+    <tr>
+      <th>
+        user
+      </th>
+      <th>badge</th>
+      <th colspan="1"></th>
+    </tr>
+
+  <tbody>
+    <% @user_badges.each do |badge| %>
+      <tr class="font-weight-light">
+        <td><%= badge.user_id %></td>
+        <td><%= badge.badge_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

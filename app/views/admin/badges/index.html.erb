@@ -18,12 +18,12 @@
     <% @badges.each do |badge| %>
       <tr>
         <td><img src="<%= badge.image %>" alt="" width="64px" height="64px"></td>
-        <td><%= badge.name %></td>
-        <td><%= badge.category.title %></td>
-        <td><%= badge.badge_rule.name %></td>
-        <td><%= link_to 'Show', admin_badge_path(badge) %></td>
-        <td><%= link_to 'Edit', edit_admin_badge_path(badge) %></td>
-        <td><%= link_to 'Destroy', admin_badge_path(badge), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="align-middle"><%= badge.name %></td>
+        <td class="align-middle"><%= badge.category.title %></td>
+        <td class="align-middle"><%= badge.badge_rule.name %></td>
+        <td class="align-middle"><%= link_to 'Show', admin_badge_path(badge) %></td>
+        <td class="align-middle"><%= link_to 'Edit', edit_admin_badge_path(badge) %></td>
+        <td class="align-middle"><%= link_to 'Destroy', admin_badge_path(badge), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
