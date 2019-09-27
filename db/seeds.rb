@@ -1,22 +1,22 @@
-# user = User.new(
-#   first_name: 'Ivan',
-#   last_name: 'last_name',
-#   email: 'dubwin@ya.ru',
-#   password: '123456789',
-#   password_confirmation: '123456789',
-#   type: 'Admin'
-# )
-# user.skip_confirmation!
-# user.save!
+user = User.new(
+  first_name: 'Ivan',
+  last_name: 'last_name',
+  email: 'dubwin@ya.ru',
+  password: '123456789',
+  password_confirmation: '123456789',
+  type: 'Admin'
+)
+user.skip_confirmation!
+user.save!
 
 user = User.where(type: "Admin")
 
 categories = Category.create([{title: :Ruby},{title: :Rails}, {title: :JS}, {title: :HTML}, {title: :CSS}])
 
-tests = Test.create([{title: "Введение в HTML", level: 1, category_id: categories[3].id, author_id: user.id},
-                    {title: "Идиомы Ruby", level: 1, category_id: categories[0].id, author_id: user.id},
-                    {title: "Миграции в Rails", level: 1, category_id: categories[1].id, author_id: user.id},
-                    {title: "Генераторы Rails", level: 1, category_id: categories[1].id, author_id: user.id}])
+tests = Test.create([{title: "Введение в HTML", level: 1, category_id: categories[3].id, author_id: user[0].id},
+                    {title: "Идиомы Ruby", level: 1, category_id: categories[0].id, author_id: user[0].id},
+                    {title: "Миграции в Rails", level: 1, category_id: categories[1].id, author_id: user[0].id},
+                    {title: "Генераторы Rails", level: 1, category_id: categories[1].id, author_id: user[0].id}])
 
 questions = Question.create([{body: "Язык HTML - язык…", test_id: tests[0].id},
                             {body: "Между каким тэгом заключается документ HTML?", test_id: tests[0].id},

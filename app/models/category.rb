@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   has_many :tests
+  has_many :badges
 
   validates :title, presence: true
 
