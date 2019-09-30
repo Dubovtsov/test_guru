@@ -1,23 +1,38 @@
 <nav class="shadow-sm navbar navbar-light bg-white">
   <div>
     <%= link_to "TestGuru", tests_path, class: "navbar-brand" %>
-    <% if user_signed_in? %>
-      <% if current_user.admin? %>
-        <%= link_to "#{t('admin_panel')}", admin_tests_path, class: "" %>
-      <% end %>
-    <% end %>
   </div>
 
   <span class="navbar-text">
     <% if user_signed_in? %>
 
-    <%= link_to "Мои награды", user_badges_path %>
-    <%= t('.welcome_user_html', email: current_user.email) %> |
-    <%= link_to "#{t('.logout')}", destroy_user_session_path, method: :delete %>
+    <div class="dropdown dropleft">
+      <%= t('.welcome_user_html') %>
+      <div class="btn-group">
+        <div class="btn-group">
+          <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+            <%= current_user.email %>
+          </button>
+          <div class="dropdown-menu">
+            <%= link_to "Мои награды", user_badges_path, class: "dropdown-item" %>
+            <% if user_signed_in? %>
+              <% if current_user.admin? %>
+                <%= link_to "#{t('admin_panel')}", admin_tests_path, class: "dropdown-item" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-danger">
+          <%= link_to "#{t('.logout')}", destroy_user_session_path, method: :delete %>
+        </button>
+      </div>
+      </div>
+    <div>
+      <% else %>
+        <%= link_to "#{t('signup')}", new_user_registration_path %> |
+        <%= link_to "#{t('login')}", user_session_path %>
+      <% end %>
+    </div>
 
-    <% else %>
-      <%= link_to "#{t('signup')}", new_user_registration_path %> |
-      <%= link_to "#{t('login')}", user_session_path %>
-    <% end %>
   </span>
 </nav>

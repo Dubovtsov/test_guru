@@ -34,7 +34,8 @@ ru:
   layouts:
     header:
       logout: "Выход"
-      welcome_user_html: 'Добро пожаловать, <b>%{email}</b>!'
+      # welcome_user_html: 'Добро пожаловать, <b>%{email}</b>!'
+      welcome_user_html: 'Добро пожаловать, '
 
   shared:
     errors:
