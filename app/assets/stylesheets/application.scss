@@ -46,6 +46,19 @@ a {
   color: $link-color;
 }
 
+.btn-circle {
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.dropdown-menu{
+  background-color: $main-light-color;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .actions {
   padding-left: 15px;
   padding-top: 20px;

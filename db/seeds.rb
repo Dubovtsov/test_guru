@@ -41,4 +41,5 @@ Answer.create(body: '.doc', correct: false, question_id: questions[3].id)
 Answer.create(body: '.html', correct: true, question_id: questions[3].id)
 Answer.create(body: '.exe', correct: false, question_id: questions[3].id)
 
-BadgeRule.new(name: 'all test')
+BadgeRule.new(name: 'all the tests in the category')
+BadgeRule.new(name: 'the first test in the category')

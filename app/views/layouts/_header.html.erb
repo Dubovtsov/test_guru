@@ -7,11 +7,11 @@
     <% if user_signed_in? %>
 
     <div class="dropdown dropleft">
-      <%= t('.welcome_user_html') %>
+      <%= t('.welcome_user_html', email: current_user.email) %>
       <div class="btn-group">
         <div class="btn-group">
-          <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-            <%= current_user.email %>
+          <button type="button" class="btn btn-circle bg-warning p-0" data-toggle="dropdown">
+            <i title="Редактировать" class="align-middle material-icons md-36">account_circle</i>
           </button>
           <div class="dropdown-menu">
             <%= link_to "Мои награды", user_badges_path, class: "dropdown-item" %>
@@ -22,8 +22,8 @@
             <% end %>
           </div>
         </div>
-        <button type="button" class="btn btn-outline-danger">
-          <%= link_to "#{t('.logout')}", destroy_user_session_path, method: :delete %>
+        <button type="button" class="btn btn-danger">
+          <%= link_to "#{t('.logout')}", destroy_user_session_path, method: :delete, class: "text-white" %>
         </button>
       </div>
       </div>

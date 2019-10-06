@@ -13,7 +13,9 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.compleated_test(@test_passage).deliver_now
 
-
+        @category = @test_passage.test.category
+# Создать метод сравнивающий количество пройденных тестов 
+# с их общим количеством в категории
         current_user.badges.push(@badge)
 
 

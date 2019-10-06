@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group field col-md-6">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
   
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "#{t('back')}", admin_categories_path, class: "btn btn-danger" %>
   </div>
 <% end %>

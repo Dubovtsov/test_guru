@@ -1,2 +1,3 @@
 class BadgeRule < ApplicationRecord
+  
 end
