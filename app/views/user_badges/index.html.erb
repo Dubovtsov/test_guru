@@ -3,18 +3,17 @@
 <table class="table bg-white border-iron shadow">
 
     <tr>
-      <th>
-        user
-      </th>
-      <th>badge</th>
       <th colspan="1"></th>
+      <th>badge</th>
+      <th>user</th>
     </tr>
 
   <tbody>
     <% @user_badges.each do |badge| %>
       <tr class="font-weight-light">
-        <td><%= badge.user_id %></td>
-        <td><%= badge.badge_id %></td>
+        <td><img src="<%= badge.badge.image %>" alt="" width="64px" height="64px"></td>
+        <td><%= badge.badge.name %></td>
+        <td><%= badge.user.email %></td>
       </tr>
     <% end %>
   </tbody>
