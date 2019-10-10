@@ -67,6 +67,10 @@ ru:
       success: '%{url} успешно сохранен!'
       failure: 'Во время сохранения gist произошла ошибка'
 
+  user_badges:
+    index:
+      header: "Награды"
+
   feedbacks:
     new:
       send: "Отправить"

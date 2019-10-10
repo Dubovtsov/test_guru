@@ -1,20 +1,12 @@
-<h1 class="main-dark-color"><%= t('.header') %></h1>
+<h2 class="main-dark-color rounded-h2 py-1 px-5 text-center text-uppercase font-weight-bold"><%= t('.header') %></h2>
 
-<table class="table bg-white border-iron shadow">
+<% @user_badges.each do |badge| %>
 
-    <tr>
-      <th colspan="1"></th>
-      <th>badge</th>
-      <th>user</th>
-    </tr>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<%= badge.badge.image %>" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text text-center"><%= badge.badge.name %></p>
+    </div>
+  </div>
 
-  <tbody>
-    <% @user_badges.each do |badge| %>
-      <tr class="font-weight-light">
-        <td><img src="<%= badge.badge.image %>" alt="" width="64px" height="64px"></td>
-        <td><%= badge.badge.name %></td>
-        <td><%= badge.user.email %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% end %>

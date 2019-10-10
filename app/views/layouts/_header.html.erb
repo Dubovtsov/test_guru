@@ -1,4 +1,4 @@
-<nav class="shadow-sm navbar navbar-light bg-white">
+<nav class="shadow-sm navbar navbar-dark">
   <div>
     <%= link_to "TestGuru", tests_path, class: "navbar-brand" %>
   </div>
@@ -10,7 +10,7 @@
       <%= t('.welcome_user_html', email: current_user.email) %>
       <div class="btn-group">
         <div class="btn-group">
-          <button type="button" class="btn btn-circle bg-warning p-0" data-toggle="dropdown">
+        <button type="button" class="btn btn-circle bg-warning p-0" data-toggle="dropdown">
             <i title="Редактировать" class="align-middle material-icons md-36">account_circle</i>
           </button>
           <div class="dropdown-menu">
