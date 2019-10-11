@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post   'feedbacks',     to: 'feedbacks#send_mail'
 
   resources :user_badges, only: :index
+  resources :badges, only: :index
 
   resources :tests, only: :index do
     member do

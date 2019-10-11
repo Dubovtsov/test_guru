@@ -67,9 +67,13 @@ ru:
       success: '%{url} успешно сохранен!'
       failure: 'Во время сохранения gist произошла ошибка'
 
+  badges:
+    index:
+      header: "Доступные награды"
+
   user_badges:
     index:
-      header: "Награды"
+      header: "Мои награды"
 
   feedbacks:
     new:

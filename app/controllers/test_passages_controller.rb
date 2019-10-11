@@ -12,10 +12,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.compleated_test(@test_passage).deliver_now
-
       reward(@test_passage)
-
-
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -44,16 +41,14 @@ class TestPassagesController < ApplicationController
 
   def reward(test_passage)
     @category = test_passage.test.category.id
-    # Создать метод сравнивающий количество пройденных тестов
-    # с их общим количеством в категории
 
     @all_tests_in_the_category = Test.all.where(category_id: @category).count
     @user_test_passages = current_user.tests.joins(:test_passages).where(category_id: @category).distinct!.count
 
-    if @user_test_passages == 1
+    if @user_test_passages == 1 && @test_passage.successfully?
       @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 2).take
       current_user.badges.push(@badge) if @badge.present?
-    elsif @user_test_passages == @all_tests_in_the_category
+    elsif @user_test_passages == @all_tests_in_the_category && @test_passage.successfully?
       @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 1).take
       current_user.badges.push(@badge) if @badge.present?
     else
