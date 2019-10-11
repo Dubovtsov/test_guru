@@ -20,7 +20,7 @@ class Admin::BadgesController < Admin::BaseController
 
     respond_to do |format|
       if @badge.save
-        format.html { redirect_to admin_badge_path(@badge), notice: 'Badge was successfully created.' }
+        format.html { redirect_to admin_badges_path, notice: 'Badge was successfully created.' }
         format.json { render :show, status: :created, location: @badge }
       else
         format.html { render :new }

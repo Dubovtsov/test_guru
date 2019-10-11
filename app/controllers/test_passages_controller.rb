@@ -50,12 +50,12 @@ class TestPassagesController < ApplicationController
     @all_tests_in_the_category = Test.all.where(category_id: @category).count
     @user_test_passages = current_user.tests.joins(:test_passages).where(category_id: @category).distinct!.count
 
-    if @user_test_passages == 0
-      @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 3).take
-      current_user.badges.push(@badge)
-    elsif @user_test_passages == @all_tests_in_the_category
+    if @user_test_passages == 1
       @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 2).take
-      current_user.badges.push(@badge)
+      current_user.badges.push(@badge) if @badge.present?
+    elsif @user_test_passages == @all_tests_in_the_category
+      @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 1).take
+      current_user.badges.push(@badge) if @badge.present?
     else
     end
   end

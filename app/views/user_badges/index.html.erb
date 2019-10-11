@@ -2,11 +2,13 @@
 
 <% @user_badges.each do |badge| %>
 
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<%= badge.badge.image %>" alt="Card image cap">
-    <div class="card-body">
-      <p class="card-text text-center"><%= badge.badge.name %></p>
+  <div class="d-flex justify-content-between">
+
+    <div class="card" style="width: 16rem;">
+      <img class="card-img-top" src="<%= badge.badge.image %>" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text text-center"><%= badge.badge.name %></p>
+      </div>
     </div>
   </div>
-
 <% end %>
