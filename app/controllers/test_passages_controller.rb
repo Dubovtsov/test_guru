@@ -12,7 +12,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.compleated_test(@test_passage).deliver_now
-      reward(@test_passage)
+      reward
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -39,12 +39,23 @@ class TestPassagesController < ApplicationController
 
   private
 
-  def reward(test_passage)
-    @category = test_passage.test.category.id
+  def reward
+    @category = @test_passage.test.category.id
 
     @all_tests_in_the_category = Test.all.where(category_id: @category).count
-    @user_test_passages = current_user.tests.joins(:test_passages).where(category_id: @category).distinct!.count
-
+    @user_tests = current_user.tests.joins(:test_passages).where(category_id: @category)
+    @user_test_passages = []
+    @user_tests.each do |test|
+      @user_test_passages << current_user.test_passages.find(test_id: test.id)
+    end
+    
+    @successful_test ||= 0
+    @user_test_passages.each do |test_passage|
+      @successful_test += 1 if test_passage.successefully?
+    end
+      
+#    @user_test_passages = current_user.tests.joins(:test_passages).where(category_id: @category).distinct!.count
+# successfully?
     if @user_test_passages == 1 && @test_passage.successfully?
       @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 2).take
       current_user.badges.push(@badge) if @badge.present?
