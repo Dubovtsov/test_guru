@@ -43,23 +43,21 @@ class TestPassagesController < ApplicationController
     @category = @test_passage.test.category.id
 
     @all_tests_in_the_category = Test.all.where(category_id: @category).count
-    @user_tests = current_user.tests.joins(:test_passages).where(category_id: @category)
-    @user_test_passages = []
-    @user_tests.each do |test|
-      @user_test_passages << current_user.test_passages.find(test_id: test.id)
-    end
+
+    @user_test_passages = current_user.test_passages.where(test_id: Test.where(category_id: @category))
     
     @successful_test ||= 0
     @user_test_passages.each do |test_passage|
-      @successful_test += 1 if test_passage.successefully?
+      @successful_test += 1 if test_passage.successfully?
     end
+
       
 #    @user_test_passages = current_user.tests.joins(:test_passages).where(category_id: @category).distinct!.count
 # successfully?
-    if @user_test_passages == 1 && @test_passage.successfully?
+    if @successful_test == 1
       @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 2).take
       current_user.badges.push(@badge) if @badge.present?
-    elsif @user_test_passages == @all_tests_in_the_category && @test_passage.successfully?
+    elsif @successful_test == @all_tests_in_the_category && @user_test_passages.count == @successful_test
       @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 1).take
       current_user.badges.push(@badge) if @badge.present?
     else
