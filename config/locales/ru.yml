@@ -10,23 +10,25 @@ ru:
       question:
         create: "Создать вопрос"
         update: "Обновить вопрос"
-
       answer:
         create: "Создать ответ"
         update: "Обновить ответ"
+      category:
+        create: "Создать категорию"
+        update: "Обновить категорию"
 
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
-
       question:
         body: "Содержание"
-
       answer:
         body: "Содержание"
         correct: "Правильный"
+      category:
+        title: "Название"
 
     select:
       prompt: "Выберите из списка"
@@ -110,11 +112,19 @@ ru:
       index:
         header: "Список категорий"
         new: "Добавить категорию"
+      edit:
+        title: "Редактирование категории"
+      new:
+        title: "Добавление категории"
 
     badges:
       index:
         header: "Список наград"
         new: "Добавить достижение"
+        name: "Наименование"
+        category: "Категория"
+        rule: "Правило"
+        image: "Изображение"
 
     questions:
       show:

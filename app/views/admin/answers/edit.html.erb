@@ -3,6 +3,3 @@
 <p><%= @answer.question.body %></p>
 
 <%= render 'form', answer: @answer %>
-
-<%= link_to "#{t('show')}", admin_answer_path(@answer) %> |
-<%= link_to "#{t('back')}", admin_question_path(@answer.question) %>
