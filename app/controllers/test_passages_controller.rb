@@ -41,9 +41,7 @@ class TestPassagesController < ApplicationController
 
   def reward
     @category = @test_passage.test.category.id
-
     @all_tests_in_the_category = Test.all.where(category_id: @category).count
-
     @user_test_passages = current_user.test_passages.where(test_id: Test.where(category_id: @category))
     
     @successful_test ||= 0
@@ -51,9 +49,6 @@ class TestPassagesController < ApplicationController
       @successful_test += 1 if test_passage.successfully?
     end
 
-      
-#    @user_test_passages = current_user.tests.joins(:test_passages).where(category_id: @category).distinct!.count
-# successfully?
     if @successful_test == 1
       @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 2).take
       current_user.badges.push(@badge) if @badge.present?
