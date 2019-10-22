@@ -1,6 +1,10 @@
-class BadgeRule < ApplicationRecord
-  has_many :badges, dependent: :destroy
-  
+class RewardService
+  attr_reader :response
+
+  def initialize(category)
+    @category = category
+  end
+
   
   def reward
     @category = @test_passage.test.category.id
@@ -30,4 +34,5 @@ class BadgeRule < ApplicationRecord
     @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 1).take
     current_user.badges.push(@badge) if @badge.present?
   end
+
 end
