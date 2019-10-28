@@ -1,15 +1,15 @@
-# user = User.new(
-#  first_name: 'Ivan',
-#  last_name: 'last_name',
-#  email: 'dubwin@ya.ru',
-#  password: '123456789',
-#  password_confirmation: '123456789',
-#  type: 'Admin'
-# )
-# user.skip_confirmation!
-# user.save!
-#
-# user = User.where(type: "Admin")
+user = User.new(
+ first_name: 'Ivan',
+ last_name: 'last_name',
+ email: 'dubwin@ya.ru',
+ password: '123456789',
+ password_confirmation: '123456789',
+ type: 'Admin'
+)
+user.skip_confirmation!
+user.save!
+
+user = User.where(type: "Admin")
 
 categories = Category.create([{title: :Ruby},{title: :Rails}, {title: :JS}, {title: :HTML}, {title: :CSS}])
 

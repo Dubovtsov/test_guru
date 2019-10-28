@@ -18,9 +18,9 @@ class BadgeRule < ApplicationRecord
       current_user.badges.push(@badge) if @badge.present?
       # the_first_test_in_the_category(@category, @current_user)
     elsif @successful_test == @all_tests_in_the_category && @user_test_passages.count == @successful_test
-      # all_test_in_the_category(@category, @current_user)
       @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 1).take
       current_user.badges.push(@badge) if @badge.present?
+      # all_tests_in_the_category(@category, @current_user)
     else
     end
   end
@@ -32,7 +32,7 @@ class BadgeRule < ApplicationRecord
     current_user.badges.push(@badge) if @badge.present?
   end
 
-  def all_test_in_the_category(category, current_user)
+  def all_tests_in_the_category(category, current_user)
     @badge = Badge.where("category_id = ? AND badge_rule_id = ?", category, 1).take
     current_user.badges.push(@badge) if @badge.present?
   end

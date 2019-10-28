@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-light-grey">
     <%= render "admin/nav"%>
     <%= render 'shared/flash' %>
     <div class="container-fluid mt-2">
@@ -16,7 +16,7 @@
         <div class="col-lg-2">
           <%= render "layouts/admin_sidebar"%>
         </div>
-        <div class="col-lg-10">
+        <div class="col-lg-10 border shadow bg-white">
           <%= yield %>
         </div>
       </div>

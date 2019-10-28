@@ -1,13 +1,12 @@
-<nav class="navbar navbar-dark bg-primary">
+<nav class="navbar shadow navbar-dark bg-primary">
   <%= link_to "TestGuru [ #{t('admin_panel')} ]", tests_path, class: "navbar-brand" %>
-
   <span class="navbar-text">
     <% if user_signed_in? %>
-    
+
     <%= t('.welcome_admin_html', email: current_user.email) %> | <%= link_to "#{t('.logout')}", destroy_user_session_path, method: :delete %>
-    
+
     <% else %>
-      <%= link_to "#{t('signup')}", new_user_registration_path %> | 
+      <%= link_to "#{t('signup')}", new_user_registration_path %> |
       <%= link_to "#{t('login')}", user_session_path %>
     <% end %>
   </span>
