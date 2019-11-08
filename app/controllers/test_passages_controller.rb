@@ -11,10 +11,9 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      @test_passage.success = true if @test_passage.successfully?
-      @test_passage.save!
+      RewardService.new(self).call
       TestsMailer.compleated_test(@test_passage).deliver_now
-      BadgeRule.reward(@test_passage, current_user)
+      # BadgeRule.reward(@test_passage, current_user)
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
