@@ -4,48 +4,47 @@ class RewardService
     @test_passage = test_passage
     @user = test_passage.user
     @test = test_passage.test
+    @category = test_passage.test.category.id
+    @all_tests_in_the_category = Test.all.where(category_id: @category).count
+    @user_test_passages = @user.test_passages.select("user_id, test_id").where(test_id: Test.where(category_id: @category)).distinct!
+
   end
 
   def call
-    if successfull_test?
-      first_try_successfull
-      category_complete
+    if @test_passage.successfully?
+      the_first_test_successfull
+      all_test_in_the_category
     end
   end
 
   private
 
-  def give_badge(badge)
+  def reward(badge)
     @user.badges << badge
   end
 
-  def successfull_test?
-    @test_passage.successfully?
+  def successful_tests
+    @successful_tests ||= 0
+
+    @user_test_passages.each do |test_passage|
+      @successful_tests += 1 if test_passage.successfully?
+    end
+    @successful_tests
   end
 
-  def first_try_successfull
-    @user.tests.where(id: @test.id).count == 1
-    give_badge(BadgeRule.where(rule: 'first_try_complete').first.badge)
-  end
-
-  def level_complete
-    level = BadgeRule.where(rule: 'level_complete').first.value
-    tests_ids = Test.levels_test(level).ids
-    complete_tests_ids = @user.tests.levels_test(level).distinct.ids
-
-    if complete_tests_ids == tests_ids
-      give_badge(BadgeRule.where(rule: 'level_complete').first.badge)
+  def the_first_test_successfull
+    if successful_tests == 1
+      @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 2).take
+      @user.badges.push(@badge) if @badge.present?
+    else
     end
   end
 
-  def category_complete
-    category = BadgeRule.where(rule: 'category_complete').first.value
-
-    tests_ids = Test.categories_test(category).ids
-    complete_tests_ids = @user.tests.categories_test(category).distinct.ids
-
-    if complete_tests_ids == tests_ids
-      give_badge(BadgeRule.where(rule: 'category_complete').first.badge)
+  def all_test_in_the_category
+    if successful_tests == @all_tests_in_the_category && @user_test_passages.count == @successful_tests
+      @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 1).take
+      @user.badges.push(@badge) if @badge.present?
+    else
     end
   end
 
@@ -71,14 +70,14 @@ end
 #     end
 #
 #     if @successful_test == 1
-#       the_first_test_in_the_category
+#       the_first_test_successfull
 #     elsif @successful_test == @all_tests_in_the_category && @user_test_passages.count == @successful_test
 #       all_test_in_the_category
 #     else
 #     end
 #   end
 #
-#   def the_first_test_in_the_category
+#   def the_first_test_successfull
 #     @badge = Badge.where("category_id = ? AND badge_rule_id = ?", @category, 2).take
 #     current_user.badges.push(@badge) if @badge.present?
 #   end
