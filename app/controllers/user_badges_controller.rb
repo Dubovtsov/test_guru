@@ -2,13 +2,6 @@ class UserBadgesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user_badges = UserBadge.all.where(user_id: current_user.id)
+    @user_badges = current_user.badges
   end
-
-  private
-
-  def find_user_badge
-    @user_badge = UserBadge.find(params[:id])
-  end
-
 end

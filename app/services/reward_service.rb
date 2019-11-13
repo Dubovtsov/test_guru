@@ -10,10 +10,8 @@ class RewardService
   end
 
   def call
-    if @test_passage.successfully?
-      the_first_test_successfull
-      all_test_in_the_category
-    end
+    the_first_test_successfull
+    all_test_in_the_category
   end
 
   private
