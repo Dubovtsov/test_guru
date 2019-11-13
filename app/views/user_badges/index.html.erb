@@ -1,0 +1,12 @@
+<h2 class="main-dark-color rounded-h2 py-1 px-5 text-center text-uppercase font-weight-bold"><%= t('.header') %></h2>
+
+<div class="d-flex justify-content-around">
+<% @user_badges.each do |badge| %>
+    <div class="card" style="width: 16rem;">
+      <img class="card-img-top" src="<%= badge.badge.image %>" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text text-center"><%= badge.badge.name %></p>
+      </div>
+    </div>
+<% end %>
+</div>

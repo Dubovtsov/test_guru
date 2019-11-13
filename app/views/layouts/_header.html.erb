@@ -1,21 +1,39 @@
-<nav class="shadow-sm navbar navbar-light bg-white">
+<nav class="shadow-sm navbar navbar-dark">
   <div>
     <%= link_to "TestGuru", tests_path, class: "navbar-brand" %>
-    <% if user_signed_in? %>
-      <% if current_user.admin? %>
-        <%= link_to "#{t('admin_panel')}", admin_tests_path, class: "" %>
-      <% end %>
-    <% end %>
   </div>
 
   <span class="navbar-text">
     <% if user_signed_in? %>
 
-    <%= t('.welcome_user_html', email: current_user.email) %> | <%= link_to "#{t('.logout')}", destroy_user_session_path, method: :delete %>
+    <div class="dropdown dropleft">
+      <%= t('.welcome_user_html', email: current_user.email) %>
+      <div class="btn-group">
+        <div class="btn-group">
+          <button type="button" class="btn btn-circle bg-warning p-0" data-toggle="dropdown">
+            <i title="Редактировать" class="align-middle material-icons md-36">account_circle</i>
+          </button>
+          <div class="dropdown-menu">
+            <%= link_to "Мои награды", user_badges_path, class: "dropdown-item" %>
+            <% if user_signed_in? %>
+              <% if current_user.admin? %>
+                <%= link_to "#{t('admin_panel')}", admin_tests_path, class: "dropdown-item" %>
+              <% end %>
+            <% end %>
+            <%= link_to "Доступные награды", badges_path, class: "dropdown-item" %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-danger">
+          <%= link_to "#{t('.logout')}", destroy_user_session_path, method: :delete, class: "text-white" %>
+        </button>
+      </div>
+    </div>
+    <div>
+      <% else %>
+        <%= link_to "#{t('signup')}", new_user_registration_path %> |
+        <%= link_to "#{t('login')}", user_session_path %>
+      <% end %>
+    </div>
 
-    <% else %>
-      <%= link_to "#{t('signup')}", new_user_registration_path %> |
-      <%= link_to "#{t('login')}", user_session_path %>
-    <% end %>
   </span>
 </nav>

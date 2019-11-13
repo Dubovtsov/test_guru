@@ -1,0 +1,32 @@
+<h1>
+  <%= t('.header') %> |
+  <%= link_to "#{t('.new')}", new_admin_badge_path, class: "btn btn-primary" %>
+</h1>
+
+<table class="table table-sm table-bordered col-lg-8">
+  <thead class="bg-dark text-light">
+    <tr>
+      <th style="width: 64px"><%= t('.image') %></th>
+      <th><%= t('.name') %></th>
+      <th><%= t('.category') %></th>
+      <th><%= t('.rule') %></th>
+      <th style="width: 10%" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <% if @badges %>
+  <tbody>
+    <% @badges.each do |badge| %>
+      <tr>
+        <td><img src="<%= badge.image %>" alt="" width="64px" height="64px"></td>
+        <td class="align-middle"><%= badge.name %></td>
+        <td class="align-middle"><%= badge.category.title %></td>
+        <td class="align-middle"><%= badge.badge_rule.name %></td>
+        <td class="align-middle"><%= link_to 'Show', admin_badge_path(badge) %></td>
+        <td class="align-middle"><%= link_to 'Edit', edit_admin_badge_path(badge) %></td>
+        <td class="align-middle"><%= link_to 'Destroy', admin_badge_path(badge), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <% end %>
+</table>

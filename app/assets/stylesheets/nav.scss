@@ -18,6 +18,7 @@
 
 .navbar-brand {
   letter-spacing: 3px;
+  color: #167eb2;
 }
 
 .nav-admin.user-email {
@@ -32,4 +33,13 @@
 
 .navbar {
   background-color: #FFFFFF;
+}
+
+.dropdown-menu.show {
+  border: 1px solid white;
+  background-color: #167eb2;
+  
+  :hover {
+  background-color: #2e2e2e;
+  }
 }

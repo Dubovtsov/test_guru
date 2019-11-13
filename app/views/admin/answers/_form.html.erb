@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group col-md-6">
     <%= form.label :body %>
-    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %>
+    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60, class: "form-control" %>
   </div>
 
-   <div class="field">
+   <div class="form-check mb-1 col-md-6">
+    <%= form.check_box :correct, id: :answer_correct, class: "form-check-input" %>
     <%= form.label :correct %>
-    <%= form.check_box :correct, id: :answer_correct %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "#{t('back')}", admin_question_path(@answer.question), class: "btn btn-danger" %>
   </div>
 <% end %>

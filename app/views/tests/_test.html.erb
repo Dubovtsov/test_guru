@@ -1,7 +1,10 @@
-<tr class="font-weight-light">
-  <td><%= test.title %></td>
-  <td><%= test_level(test) %></td>
-  <td><%= test.category.title %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= button_to "#{t('.start')}", start_test_path(test), class: "btn btn-sm btn-outline-success" %></td>
-</tr>
+<% if test.questions.present? & test.questions.all?{|v| v.answers.present?} %>
+  <tr class="font-weight-light">
+    <td><%= test.title %></td>
+    <td><%= test_level(test) %></td>
+    <td><%= test.category.title %></td>
+    <td><%= test.questions.count %></td>
+    <td><%= button_to "#{t('.start')}", start_test_path(test), class: "btn btn-sm btn-outline-success" %></td>
+  </tr>
+<% else %>
+<% end %>

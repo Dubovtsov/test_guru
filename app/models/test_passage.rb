@@ -41,6 +41,7 @@ class TestPassage < ApplicationRecord
 
   def before_update_next_question
     self.current_question = next_question
+    self.success = true if self.successfully?
   end
 
   def before_validation_set_first_question

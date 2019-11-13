@@ -11,17 +11,35 @@
 @import "global";
 
 $link-color: #2196F3;
-$main-dark-color: #0C1F2E;
+$main-dark: #2e2e2e;
+//#0C1F2E;
 $main-light-color: #65B6FD;
-$bg-light-grey: #F8F9FA;
-
+$bg-light-grey: #E6E6E6;
+$main-text-color: #167eb2;
 
 body {
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
-.main-dark-color {
-  color: $main-dark-color;
+
+.card {
+
+}
+
+.d-flex {
+  display: inline-block;
+}
+
+.main-dark {
+  color: $main-dark;
+}
+
+.main-bg-dark {
+  background-color: $main-dark;
+}
+
+.main-text-color {
+  color: $main-text-color;
 }
 
 .bg-light-color {
@@ -32,16 +50,34 @@ body {
   background-color: $bg-light-grey;
 }
 
+.navbar {
+  background-color: $main-dark;
+}
+
 footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
-  line-height: 20px;
-  background-color: $main-dark-color;
+  height: 80px;
+  line-height: 0px;
+  background-color: $main-dark;
+  // display: block;
 }
 
 a {
   color: $link-color;
+}
+
+.btn-circle {
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.dropdown-menu{
+  background-color: $main-light-color;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .actions {
@@ -67,4 +103,11 @@ a {
 
 .form-group {
   margin-bottom: 0;
+}
+
+.rounded-h2 {
+  border-bottom-right-radius: 300px;
+  border-bottom-left-radius: 300px;
+  color: white;
+  background-color: #167eb2;
 }
