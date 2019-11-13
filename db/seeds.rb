@@ -1,13 +1,13 @@
-user = User.new(
- first_name: 'Ivan',
- last_name: 'last_name',
- email: 'dubwin@ya.ru',
- password: '123456789',
- password_confirmation: '123456789',
- type: 'Admin'
-)
-user.skip_confirmation!
-user.save!
+# user = User.new(
+#  first_name: 'Ivan',
+#  last_name: 'last_name',
+#  email: 'dubwin@ya.ru',
+#  password: '123456789',
+#  password_confirmation: '123456789',
+#  type: 'Admin'
+# )
+# user.skip_confirmation!
+# user.save!
 
 user = User.where(type: "Admin")
 
@@ -95,3 +95,8 @@ questions = Question.create([{body: "Какой метод НЕ определя
 
 BadgeRule.create([{name: 'all tests in the category'},
                   {name: 'the first test in the category'}])
+
+Badge.create([{name: 'За первый тест в категории Ruby', image: 'https://vectr.com/dubwin/a3akADyWqE.svg?width=256&height=256&select=a4Aun6IXUO',
+                category_id: categories[0].id, badge_rule_id: 2},
+              {name: 'Пройдите все тесты в категории Ruby', image: 'https://vectr.com/dubwin/a3akADyWqE.svg?width=256&height=256&select=a4Aun6IXUO',
+                category_id: categories[0].id, badge_rule_id: 1}])
