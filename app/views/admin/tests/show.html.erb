@@ -2,12 +2,14 @@
 
 <p>
   <%= t('.level') %>: <strong><%= test_level(@test) %></strong>
-</p></br>
+</p>
+<p>
+  <%= t('.timer') %>: <strong><%= @test.timer %> min.</strong>
+</p>
 
 <h4><%= t('.header') %></h4>
 
 <%= render @test.questions %>
-
 <br>
 
 <%= link_to "#{t('.new_question')}", new_admin_test_question_path(@test), class: "btn btn-primary" %>
