@@ -1,5 +1,6 @@
 document.addEventListener('turbolinks:load', function() {
-  var control = document.getElementById('test-passage-form')
+sessionStorage.clear();
+  var control = document.querySelector('.test-timer')
   if (control) {
     var interval;
 // счетчик не должен обнуляться при переходе на следующий вопрос или обновлении страницы
@@ -7,7 +8,7 @@ document.addEventListener('turbolinks:load', function() {
       clearInterval(interval);
 
       interval = setInterval( function() {
-        var timer = localStorage.getItem("time") || $('.test-timer').html();
+        var timer = sessionStorage.getItem('time') || $('.test-timer').html();
         // localStorage.getItem("time") ||
         timer = timer.split(':');
         var minutes = timer[0];
@@ -26,7 +27,7 @@ document.addEventListener('turbolinks:load', function() {
           clearInterval(interval);
           submitForm()
         }
-        localStorage.setItem('time', minutes + ':' + seconds);
+        sessionStorage.setItem('time', minutes + ':' + seconds);
       }, 1000);
     }
     countdown();
