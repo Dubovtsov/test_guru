@@ -21,7 +21,7 @@
         <% end %>
       </p>
 
-      <%= form_with url: test_passage_path(@test_passage), id: "test-passage-form-#{@test_passage.id}", local: true, method: :put do |form| %>
+      <%= form_with url: test_passage_path(@test_passage), id: "test-passage-form", local: true, method: :put do |form| %>
         <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
           <div class="form-group pl-4">
             <div class="form-check mb-1">
