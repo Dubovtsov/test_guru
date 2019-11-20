@@ -18,6 +18,11 @@
   </div>
 
   <div class="form-group field col-md-6">
+    <%= form.label :timer %>
+    <%= form.number_field :timer, class: "form-control" %>
+  </div>
+
+  <div class="form-group field col-md-6">
     <%= form.hidden_field :author_id, value: current_user.id %>
   </div>
 

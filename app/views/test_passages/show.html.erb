@@ -2,6 +2,9 @@
   <div class="col col-md-12">
     <h2 class="main-dark-color"><%= t('.header', title: @test_passage.test.title) %></h2>
     <%= render 'shared/progress_bar' %>
+    <% if @test_passage.test.timer.present? %>
+      <span class="float-right">Время на прохождение теста <b class="test-timer "><%= @test_passage.test.timer %>:00</b> min.</span>
+    <% end %>
     <div class="p-3 card question-card border-iron shadow bg-white">
       <p>
         <b class=""><%= @test_passage.current_question.body %></b>
@@ -18,7 +21,7 @@
         <% end %>
       </p>
 
-      <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+      <%= form_with url: test_passage_path(@test_passage), id: "test-passage-form", local: true, method: :put do |form| %>
         <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
           <div class="form-group pl-4">
             <div class="form-check mb-1">
