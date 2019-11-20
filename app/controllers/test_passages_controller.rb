@@ -10,13 +10,20 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
-      RewardService.new(@test_passage).call if @test_passage.successfully?
-      TestsMailer.compleated_test(@test_passage).deliver_now
+    @time_start = @test_passage.created_at.min
+    @time_end = Time.current.min
+    @timer = @test_passage.test.timer
 
-      redirect_to result_test_passage_path(@test_passage)
+    if @time_end - @time_start <= @timer
+      if @test_passage.completed?
+        RewardService.new(@test_passage).call if @test_passage.successfully?
+        TestsMailer.compleated_test(@test_passage).deliver_now
+        redirect_to result_test_passage_path(@test_passage)
+      else
+        render :show
+      end
     else
-      render :show
+      redirect_to root_path, notice: 'Жулик, не балуй!'
     end
   end
 
